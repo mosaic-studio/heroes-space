@@ -1,10 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}">
+        {% block styles %}
 
-</body>
+        {% endblock %}
+        {% block title %}
+            <title>Title</title>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+
+        {% endblock %}
+
+        <script type="application/javascript" href="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+        <script type="application/javascript" href="{% static 'js/bootstrap.js' %}"></script>
+        {% block scritps %}
+
+        {% endblock %}
+    </body>
 </html>

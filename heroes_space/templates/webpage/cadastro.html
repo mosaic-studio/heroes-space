@@ -1,0 +1,115 @@
+{% extends "modelo/padrao.html" %}
+{% load static %}
+{% block styles %}
+    <link href="{% static "webpage/css/criar_conta.css" %}" rel="stylesheet">
+{% endblock %}
+{% block title %}
+    <title>Criar Conta</title>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <form id="criar_cadastro" class="form-signin" method="post">
+                <h2 class="form-signin-heading">Criar conta</h2>
+                {% csrf_token %}
+                <div class="form-group {% if erros and erros.username %} has-error {% endif %}">
+                    <label class="control-label" for="username">Usuário</label>
+                    <input type="text" autofocus="" required="" placeholder="Usuário" class="form-control" id="username" name="username" value="{{ form.username.value|default_if_none:"" }}">
+                    {% if erros and erros.username %}
+                        <span id="username-error" class="help-block" style="display: block;">{{ erros.username.as_text }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="form-group {% if erros and erros.email %} has-error {% endif %}">
+                    <label class="control-label" for="email">Email</label>
+                    <input type="email" autofocus="" required="" placeholder="Email" class="form-control" id="email" name="email"  value="{{ form.email.value|default_if_none:"" }}">
+                    {% if erros and erros.email %}
+                        <span id="email-error" class="help-block" style="display: block;">{{ erros.email.as_text }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="form-group {% if erros and erros.password %} has-error {% endif %}">
+                    <label class="control-label" for="password">Senha</label>
+                    <input type="password" required="" placeholder="Senha" class="form-control" id="password" name="password">
+                    {% if erros and erros.password %}
+                        <span id="password-error" class="help-block" style="display: block;">{{ erros.password.as_text }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="repeatPassword">Repetir senha</label>
+                    <input type="password" required="" placeholder="Repetir senha" class="form-control" id="repeatPassword" name="repeatPassword">
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Criar conta</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+{% block scritps %}
+<script src="{% static "js/jquery.validate.min.js" %}"></script>
+    <script>
+        $(document).ready(function () {
+            $.validator.setDefaults({
+                highlight: function(element) {
+                    $(element).closest('.form-group').addClass('has-error');
+                },
+                unhighlight: function(element) {
+                    $(element).closest('.form-group').removeClass('has-error');
+                },
+                errorElement: 'span',
+                errorClass: 'help-block',
+                errorPlacement: function(error, element) {
+                    if(element.parent('.input-group').length) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                }
+            });
+            $("#criar_cadastro").validate({
+                rules: {
+                    username: {
+                        minlength: 3,
+                        maxlength: 30,
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    repeatPassword: {
+                        required: true,
+                        minlength: 5,
+                        equalTo: "#password"
+                    }
+                },
+                messages:{
+                    username: {
+                        required: "Campo obrigatório!",
+                        maxlength: "No máximo 30 carateres",
+                        minlength: "No minimo 3 caracteres!",
+                    },
+                    email: {
+                        email: "Email inválido!",
+                        required: "Campo obrigatório!",
+                    },
+                    password: {
+                        required: "Campo obrigatório!",
+                        minlength: "No minimo 5 caracteres!",
+                    },
+                    repeatPassword: {
+                        required: "Campo obrigatório!",
+                        equalTo: "As senhas não coincidem, digite novamente.",
+                        minlength: "No minimo 5 caracteres!",
+                    }
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "modelo/padrao.html" %}
+{% load static %}
+{% block styles %}
+    <link href="{% static "webpage/css/login.css" %}" rel="stylesheet">
+{% endblock %}
+{% block title %}
+    <title>Logar</title>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <form class="form-signin" method="post">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="alert alert-danger" role="alert" style="margin-top: 20px">O usuário ou a senha estão incorretos. Por favor, tente novamente.</div>
+            {% endif %}
+            <h2 class="form-signin-heading">Login</h2>
+            <div class="form-group">
+                <label class="sr-only" for="inputEmail">Email</label>
+                <input type="text" autofocus="" required="" placeholder="Email" class="form-control" id="inputEmail" name="username">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="inputPassword">Senha</label>
+                <input type="password" required="" placeholder="Senha" class="form-control" id="inputPassword" name="password">
+                <input type="hidden" name="next" value="{{ next }}" />
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-primary btn-block">Logar</button>
+        </form>
+    </div>
+
+{% endblock %}
+{% block scritps %}
+
+
+{% endblock %}
