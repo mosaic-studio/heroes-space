@@ -1,16 +1,23 @@
 {% extends "modelo/padrao.html" %}
+{% load static %}
 {% block styles %}
-
-
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
 {% endblock %}
 {% block title %}
     <title>Bem-vindo ao Heroes Space</title>
 {% endblock %}
 {% block body %}
-
-
+    <div class="container">
+        <div id="game"></div>
+    </div>
 {% endblock %}
 {% block scritps %}
-
-
+    <script type="application/javascript" src="{% static 'js/phaser.min.js' %}"></script>
+    <script type="application/javascript" src="{% static 'webpage/js/Game/fase01/Game.js' %}"></script>
+    <script type="application/javascript" src="{% static 'webpage/js/Game/fase01/app.js' %}"></script>
 {% endblock %}
