@@ -3,6 +3,9 @@
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
+        {% block preload_static %}
+
+        {% endblock %}
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}">
         {% block styles %}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="blue" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="../Backgrounds/blue.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Camada de Tiles 1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1ts2lmEAAOFfSNGGCpW0Qcm2JJuE3P9VNVfxrllrvoM5em5g5maz2SOapwVapMe0RE9obvKh/pSWaYWe0XN6QS9pdfLhvkav6DW9oXXaoE16O/lwf0fvaYs+0DZ9pE/0efLh/oV2aJf26Ct9o336PvlwP6BDOqJjOqFT+kE/Jx/uZ/SLzuk3XdAlXdH15MP9D93QX7qlO7qnf/Qw+XC3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233W3/Xfdbf9dd9t/193233X/Dx+K2aU=
+  </data>
+ </layer>
+</map>

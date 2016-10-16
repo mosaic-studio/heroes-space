@@ -1,10 +1,18 @@
 {% extends "modelo/padrao.html" %}
 {% load static %}
+{% block preload_static %}
+    <script src="{% static 'js/phaser.min.js' %}"></script>
+    <script src="{% static 'webpage/js/scripts/Boot.js' %}"></script>
+    <script src="{% static 'webpage/js/scripts/Menu.js' %}"></script>
+    <script src="{% static 'webpage/js/scripts/Preloader.js' %}"></script>
+    <script src="{% static 'webpage/js/scripts/Prologue.js' %}"></script>
+    <script src="{% static 'webpage/js/scripts/Level01.js' %}"></script>
+{% endblock %}
 {% block styles %}
     <style>
         body {
-            padding: 0px;
-            margin: 0px;
+            padding: 0;
+            margin: 0;
         }
     </style>
 {% endblock %}
@@ -17,7 +25,5 @@
     </div>
 {% endblock %}
 {% block scritps %}
-    <script type="application/javascript" src="{% static 'js/phaser.min.js' %}"></script>
-    <script type="application/javascript" src="{% static 'webpage/js/Game/fase01/Game.js' %}"></script>
-    <script type="application/javascript" src="{% static 'webpage/js/Game/fase01/app.js' %}"></script>
+    <script type="application/javascript" src="{% static 'webpage/js/scripts/app.js' %}"></script>
 {% endblock %}

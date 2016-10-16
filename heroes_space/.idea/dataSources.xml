@@ -8,6 +8,14 @@
       <remarks>$PROJECT_DIR$/heroes_space/settings.py</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:D:\Github\heroes-space\heroes_space\db.sqlite3</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.8.11.2.jar</url>
+        </library>
+      </libraries>
     </data-source>
     <data-source source="LOCAL" name="Sqlite (Xerial) - db.sqlite3" uuid="7f66a88b-812b-4c1d-af5a-193c593e4c1f">
       <driver-ref>sqlite.xerial</driver-ref>
