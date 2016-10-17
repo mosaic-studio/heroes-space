@@ -2,21 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b597871-607b-4294-8ea1-66dbec2f3688" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Boot.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Level01_Prologue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Menu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Prologue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Template.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/webpage/css/font_game.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_blue.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_blue.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_green.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_green.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_orange.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_orange.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_red.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_red.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_blue.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_blue.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_green.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_green.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_orange.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_orange.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_red.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_red.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_blue.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_blue.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_green.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_green.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_orange.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_orange.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_red.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_red.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/ship.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/ship.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/dc9ee3f9-efb8-442f-a588-f99c8e83036c.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/dc9ee3f9-efb8-442f-a588-f99c8e83036c.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/heroes_space.iml" afterPath="$PROJECT_DIR$/.idea/heroes_space.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/phaser.min.js" afterPath="$PROJECT_DIR$/static/js/phaser.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/modelo/padrao.html" afterPath="$PROJECT_DIR$/templates/modelo/padrao.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/js/scripts/Level01.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Level01.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/js/scripts/Prologue.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Prologue.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/webpage/index.html" afterPath="$PROJECT_DIR$/templates/webpage/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/static/webpage/js/Game/fase01/Game.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Level01.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/static/webpage/js/Game/fase01/app.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/app.js" />
     </list>
     <ignored path="heroes_space.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +59,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/webpage/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+            <state relative-caret-position="72">
+              <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -61,8 +69,18 @@
       <file leaf-file-name="Level01.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Level01.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+            <state relative-caret-position="130">
+              <caret line="30" column="95" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Preloader.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -74,9 +92,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -100,15 +118,16 @@
         <option value="$PROJECT_DIR$/static/webpage/js/Game/fase01/app.js" />
         <option value="$PROJECT_DIR$/static/webpage/js/Game/fase01/Game.js" />
         <option value="$PROJECT_DIR$/templates/modelo/padrao.html" />
-        <option value="$PROJECT_DIR$/static/webpage/js/scripts/Level01.js" />
-        <option value="$PROJECT_DIR$/static/webpage/js/scripts/Boot.js" />
-        <option value="$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js" />
         <option value="$PROJECT_DIR$/static/webpage/js/scripts/Template.js" />
-        <option value="$PROJECT_DIR$/static/webpage/js/scripts/Menu.js" />
         <option value="$PROJECT_DIR$/static/webpage/js/scripts/Level01_Prologue.js" />
         <option value="$PROJECT_DIR$/static/webpage/js/scripts/app.js" />
-        <option value="$PROJECT_DIR$/templates/webpage/index.html" />
+        <option value="$PROJECT_DIR$/static/webpage/js/scripts/Boot.js" />
+        <option value="$PROJECT_DIR$/static/webpage/js/scripts/Menu.js" />
         <option value="$PROJECT_DIR$/static/webpage/js/scripts/Prologue.js" />
+        <option value="$PROJECT_DIR$/static/webpage/css/font_game.css" />
+        <option value="$PROJECT_DIR$/templates/webpage/index.html" />
+        <option value="$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js" />
+        <option value="$PROJECT_DIR$/static/webpage/js/scripts/Level01.js" />
       </list>
     </option>
   </component>
@@ -119,10 +138,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="y" value="27" />
+    <option name="width" value="1366" />
+    <option name="height" value="741" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -149,7 +167,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -165,6 +182,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="heroes_space" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heroes_space" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heroes_space" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -225,10 +256,29 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heroes_space" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heroes_space" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -524,17 +574,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="0" y="27" width="1366" height="741" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26432666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26427525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32767624" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744783" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -564,6 +614,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/webpage/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Level01.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/webpage/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -734,13 +800,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7f66a88b-812b-4c1d-af5a-193c593e4c1f/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7f66a88b-812b-4c1d-af5a-193c593e4c1f/console.sql" />
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -763,31 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpage/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
-          <folding>
-            <element signature="e#44#87#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/modelo/padrao.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Template.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -796,62 +831,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Level01_Prologue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/webpage/css/font_game.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="61" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        <state relative-caret-position="252">
+          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Level01_Prologue.js">
+    <entry file="file://$PROJECT_DIR$/templates/modelo/padrao.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Boot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Prologue.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="89" column="9" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+        <state relative-caret-position="144">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/webpage/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        <state relative-caret-position="72">
+          <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpage/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Prologue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="68" column="42" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Boot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/phaser.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63504">
+          <caret line="13" column="23344" selection-start-line="13" selection-start-column="23344" selection-end-line="13" selection-end-column="23344" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Level01.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+        <state relative-caret-position="130">
+          <caret line="30" column="95" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
           <folding />
         </state>
       </provider>

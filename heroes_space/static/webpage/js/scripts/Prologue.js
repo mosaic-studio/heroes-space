@@ -13,22 +13,20 @@ var index = 0;
 var line = '';
 
 var content = [
-    " ",
-    "No ano de 3050",
     "   ",
-    "O planeta Terra já não ",
-    "era mais o mesmo",
-    "Os recursos naturais",
-    "estavam no limite",
-    "Com os recursos que ainda restavam",
+    "No ano de 3050",
+    "O planeta Terra já não\nera mais o mesmo",
+    " ",
+    "Os recursos naturais\nestavam no limite",
+    " ",
+    "Com os recursos que ainda\nrestavam",
     "E com a tecnologia avançada",
-    "A humanidade procurava",
-    "desesperadamente um novo lar",
-    "Diversos pilotos foram enviados",
-    "pelo universo",
-    "Em busca planetas habitáveis",
-    "      ",
-    "Mas acabou encontrando ",
+    "A humanidade procurava\ndesesperadamente um novo lar",
+    "  ",
+    "Diversos pilotos foram enviados\npelo universo",
+    "  ",
+    "Em busca planetas habitáveis,\nmas acabou encontrando...",
+    "  ",
     "um inimigo",
     "......."
 ];
@@ -66,6 +64,8 @@ BasicGame.Prologue.prototype = {
             this.zz[i] = Math.floor(Math.random() * 1700) - 100;
         }
 
+        this.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
+
         text = this.add.text(32, 380, '', { font: "27pt Courier", fill: "#19cb65", stroke: "#119f4e", strokeThickness: 2 });
         this.nextLine();
     },
@@ -87,6 +87,10 @@ BasicGame.Prologue.prototype = {
 
             //  Swap this for a standard drawImage call
             this.canvas.draw('star', x, y);
+        }
+        if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
+        {
+            this.state.start('Level01')
         }
     },
 

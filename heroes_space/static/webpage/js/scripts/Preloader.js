@@ -1,11 +1,7 @@
 /**
  * Created by Marlon on 16/10/2016.
  */
-/**
- * Created by Marlon on 16/10/2016.
- */
 /* jshint browser:true */
-// create BasicGame Class
 
 // create scripts function in BasicGame
 BasicGame.Preloader = function (game) {
@@ -20,11 +16,13 @@ BasicGame.Preloader.prototype = {
     },
 
     preload: function () {
-        this.load.image('space', 'static/webpage/assets/Backgrounds/remember-me.jpg');
+        this.load.image('space', 'static/webpage/assets/Backgrounds/darkPurple.png');
         this.load.image('bullet', 'static/webpage/assets/Lasers/laserBlue01.png');
         this.load.image('ship', 'static/webpage/assets/Ships/playerShip1_blue.png');
         this.load.image('button', 'static/webpage/assets/UI/buttonBlue.png');
         this.load.image('star', 'static/webpage/assets/Backgrounds/star2.png');
+        this.load.image('miniship', 'static/webpage/assets/UI/playerLife1_blue.png');
+        this.load.image('meteor_big4', 'static/webpage/assets/Meteors/meteorBrown_big4.png');
     },
 
     create: function () {

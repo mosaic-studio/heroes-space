@@ -2,7 +2,6 @@
  * Created by marlon on 14/10/16.
  */
 /* jshint browser:true */
-// create BasicGame Class
 
 // create scripts function in BasicGame
 BasicGame.Level01 = function (game) {
@@ -14,25 +13,41 @@ BasicGame.Level01.prototype = {
 
     init: function () {
         this.bulletTime = 0;
+        this.lives = 3;
+        this.maxHealthShip = this.actualHealthShip = 100;
+        this.actualPoints = 0;
     },
 
     preload: function () {
 
     },
 
-    create: function () {
-        //  This will run in Canvas mode, so let's gain a little speed and display
-        this.game.renderer.clearBeforeRender = false;
-        this.game.renderer.roundPixels = true;
+    createMeteors: function () {
+        //  Meteors
+        this.meteors = this.add.group();
+        this.meteors.enableBody = true;
+        this.meteors.physicsBodyType = Phaser.Physics.P2JS;
+        for(var i = 0; i < 50; i++){
+            var m = this.meteors.create(this.world.randomX, this.world.randomY, 'meteor_big4');
+            m.body.setCircle(60);
+            m.body.setCollisionGroup(this.meteorCollisionGroup);
+            m.body.collides([this.meteorCollisionGroup, this.playerCollisionGroup]);
+        }
+    },
 
-        //  We need arcade physics
-        this.game.physics.startSystem(Phaser.Physics.ARCADE);
+    createShip: function () {
+        //  Our player ship
+        this.ship = this.add.sprite(99, 75, 'ship');
+        this.ship.smoothed = true;
+        this.game.physics.p2.enable(this.ship, true);
+        this.ship.body.setRectangle(80, 50);
+        this.ship.body.setCollisionGroup(this.playerCollisionGroup);
+        this.ship.body.collides(this.meteorCollisionGroup, this.shipHitMeteor, this);
+        this.game.camera.follow(this.ship);
+    },
 
-        this.game.world.setBounds(0, 0, 1920, 1200);
 
-        //  A spacey background
-        this.add.sprite(0, 0, 'space');
-
+    createBullets: function () {
         //  Our ships bullets
         this.bullets = this.add.group();
         this.bullets.enableBody = true;
@@ -40,57 +55,95 @@ BasicGame.Level01.prototype = {
 
         //  All 40 of them
         this.bullets.createMultiple(40, 'bullet');
-        this.bullets.setAll('anchor.x', 0.5);
+        this.bullets.setAll('anchor.x', 1);
         this.bullets.setAll('anchor.y', 0.5);
+    },
 
-        //  Our player ship
-        this.sprite = this.add.sprite(300, 300, 'ship');
-        this.sprite.anchor.set(0.5);
-        this.game.camera.follow(this.sprite);
+    create: function () {
+        //  This will run in Canvas mode, so let's gain a little speed and display
+        this.game.renderer.clearBeforeRender = false;
+        this.game.renderer.roundPixels = true;
+        //  We need arcade physics
+        this.game.physics.startSystem(Phaser.Physics.P2JS);
+        this.game.physics.p2.setImpactEvents(true);
+        this.game.physics.p2.defaultRestitution = 0.8;
 
-        //  and its physics settings
-        this.game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+        this.playerCollisionGroup = this.game.physics.p2.createCollisionGroup();
+        this.meteorCollisionGroup = this.game.physics.p2.createCollisionGroup();
 
-        this.sprite.body.drag.set(100);
-        this.sprite.body.maxVelocity.set(200);
+        //  This part is vital if you want the objects with their own collision groups to still collide with the world bounds
+        //  (which we do) - what this does is adjust the bounds to use its own collision group.
+        this.game.physics.p2.updateBoundsCollisionGroup();
+
+        this.game.world.setBounds(0, 0, 4000, 4000);
+
+        //  A spacey background
+        this.space = this.add.tileSprite(0, 0, 800, 800, 'space');
+        this.space.fixedToCamera = true;
+
+        this.createMeteors();
+
+        // this.createBullets();
+
+        this.createShip();
 
         //  scripts input
         this.cursors = this.input.keyboard.createCursorKeys();
-        this.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
+        // this.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
+
+        this.loadUI();
 
     },
 
     update: function(){
+        this.game.physics.arcade.collide(this.ship, this.meteors);
         if (this.cursors.up.isDown)
         {
-            this.game.physics.arcade.accelerationFromRotation(this.sprite.rotation, 200, this.sprite.body.acceleration);
+            this.ship.body.thrust(400);
         }
-        else
+        else if (this.cursors.down.isDown)
         {
-            this.sprite.body.acceleration.set(0);
+            this.ship.body.reverse(400);
         }
 
         if (this.cursors.left.isDown)
         {
-            this.sprite.body.angularVelocity = -300;
+            this.ship.body.rotateLeft(100);
         }
         else if (this.cursors.right.isDown)
         {
-            this.sprite.body.angularVelocity = 300;
+            this.ship.body.rotateRight(100);
         }
         else
         {
-            this.sprite.body.angularVelocity = 0;
+            this.ship.body.setZeroRotation();
         }
 
-        if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
+        if (!this.game.camera.atLimit.x)
         {
-            this.fireBullet();
+            this.space.tilePosition.x -= (this.ship.body.velocity.x * this.game.time.physicsElapsed);
         }
 
-        // this.screenWrap(this.sprite);
+        if (!this.game.camera.atLimit.y)
+        {
+            this.space.tilePosition.y -= (this.ship.body.velocity.y * this.game.time.physicsElapsed);
+        }
+
+        // if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
+        // {
+        //    this.fireBullet();
+        // }
+
+        // this.screenWrap(this.ship);
 
         // this.bullets.forEachExists(this.screenWrap, this);
+    },
+
+
+    shipHitMeteor: function (body1, body2) {
+        this.actualHealthShip =- 1;
+        this.myHealthBar.setPercent(this.actualHealthShip);
+        //body2.removeFromWorld();
     },
 
     fireBullet: function () {
@@ -101,33 +154,38 @@ BasicGame.Level01.prototype = {
 
             if (this.bullet)
             {
-                this.bullet.reset(this.sprite.body.x + 16, this.sprite.body.y + 16);
+                this.bullet.reset(this.ship.centerX, this.ship.centerY);
                 this.bullet.lifespan = 2000;
-                this.bullet.rotation = this.sprite.rotation;
-                this.physics.arcade.velocityFromRotation(this.sprite.rotation, 400, this.bullet.body.velocity);
+                this.bullet.rotation = this.ship.rotation;
+                this.physics.arcade.velocityFromRotation(this.ship.rotation, 600, this.bullet.body.velocity);
+                // this.bullet.body.velocity.copyFrom(this.game.physics.arcade.velocityFromAngle(this.ship.angle, 700));
+
                 this.bulletTime = this.time.now + 50;
             }
         }
     },
 
-    screenWrap: function(sprite) {
+    loadUI: function () {
+        var barConfig = {width: 150, height: 25, x: 160, y: 22};
+        this.myHealthBar = new HealthBar(this.game, barConfig);
+        this.myHealthBar.setFixedToCamera(true);
+        var miniship = this.add.sprite(10, 10, "miniship");
+        miniship.fixedToCamera = true;
+        this.txtLives = this.add.text(60, 25, "x"+this.lives, {
+            font: "20px Arial",
+            fill: "#fff"
+        });
+        this.txtLives.anchor.setTo(0.5);
+        this.txtLives.fixedToCamera = true;
+        this.txtPoints = this.add.text(this.game.width - 100, 25, ""+this.actualPoints, {
+            font: "20px Arial",
+            fill: "#fff"
+        });
+        this.txtPoints.anchor.setTo(0.5);
+        this.txtPoints.fixedToCamera = true;
+    },
 
-        if (sprite.x < 0)
-        {
-            sprite.x = this.game.width;
-        }
-        else if (sprite.x >  this.game.width)
-        {
-            sprite.x = 0;
-        }
-        if (sprite.y < 0)
-        {
-            sprite.y = this.game.height;
-        }
-        else if (sprite.y > this.game.height)
-        {
-            sprite.y = 0;
-        }
+    render: function() {
 
     }
 
