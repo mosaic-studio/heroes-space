@@ -23,6 +23,9 @@ BasicGame.Preloader.prototype = {
         this.load.image('star', 'static/webpage/assets/Backgrounds/star2.png');
         this.load.image('miniship', 'static/webpage/assets/UI/playerLife1_blue.png');
         this.load.image('meteor_big4', 'static/webpage/assets/Meteors/meteorBrown_big4.png');
+        this.load.spritesheet('ss_laser_blue_explosion',
+            'static/webpage/assets/Animations/laser_blue_explosion.png', 48, 46);
+        this.load.spritesheet('kaboom', 'static/webpage/assets/Animations/explode.png', 128, 128);
     },
 
     create: function () {

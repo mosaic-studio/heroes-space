@@ -2,56 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b597871-607b-4294-8ea1-66dbec2f3688" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue01.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue01.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue02.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue02.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue03.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue03.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue04.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue04.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue05.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue05.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue06.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue06.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue07.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue07.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue08.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue08.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue09.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue09.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue10.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue10.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue11.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue11.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue12.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue12.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue13.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue13.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue14.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue14.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue15.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue15.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue16.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue16.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen01.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen01.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen02.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen02.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen03.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen03.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen04.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen04.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen05.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen05.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen06.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen06.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen07.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen07.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen08.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen08.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen09.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen09.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen10.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen10.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen11.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen11.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen12.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen12.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen13.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen13.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen14.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen14.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen15.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen15.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen16.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen16.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed01.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed01.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed02.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed02.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed03.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed03.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed04.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed04.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed05.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed05.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed06.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed06.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed07.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed07.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed08.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed08.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed09.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed09.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed10.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed10.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed11.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed11.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed12.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed12.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed13.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed13.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed14.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed14.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed15.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed15.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed16.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed16.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/js/scripts/Level01.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Level01.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js" />
     </list>
     <ignored path="heroes_space.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -96,8 +48,8 @@
       <file leaf-file-name="Level01.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Level01.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="265" column="6" selection-start-line="265" selection-start-column="6" selection-end-line="265" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -106,8 +58,8 @@
       <file leaf-file-name="Preloader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+            <state relative-caret-position="177">
+              <caret line="27" column="37" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -223,68 +175,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="webpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="heroes_space" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="heroes_space" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="heroes_space" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="heroes_space" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="heroes_space" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="heroes_space" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -601,7 +491,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1366" height="741" extended-state="7" />
+    <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26427525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -943,16 +833,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        <state relative-caret-position="177">
+          <caret line="27" column="37" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Level01.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="265" column="6" selection-start-line="265" selection-start-column="6" selection-end-line="265" selection-end-column="6" />
           <folding />
         </state>
       </provider>
