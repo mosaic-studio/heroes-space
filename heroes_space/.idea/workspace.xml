@@ -2,29 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b597871-607b-4294-8ea1-66dbec2f3688" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/webpage/css/font_game.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_blue.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_blue.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_green.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_green.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_orange.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_orange.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_red.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip1_red.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_blue.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_blue.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_green.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_green.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_orange.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_orange.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_red.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip2_red.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_blue.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_blue.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_green.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_green.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_orange.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_orange.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_red.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/playerShip3_red.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Ships/ship.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Ships/ship.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/heroes_space.iml" afterPath="$PROJECT_DIR$/.idea/heroes_space.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/phaser.min.js" afterPath="$PROJECT_DIR$/static/js/phaser.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue01.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue01.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue02.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue02.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue03.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue03.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue04.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue04.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue05.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue05.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue06.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue06.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue07.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue07.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue08.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue08.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue09.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue09.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue10.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue10.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue11.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue11.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue12.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue12.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue13.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue13.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue14.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue14.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue15.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue15.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue16.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserBlue16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen01.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen01.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen02.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen02.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen03.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen03.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen04.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen04.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen05.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen05.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen06.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen06.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen07.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen07.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen08.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen08.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen09.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen09.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen10.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen10.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen11.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen11.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen12.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen12.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen13.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen13.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen14.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen14.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen15.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen15.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen16.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserGreen16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed01.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed01.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed02.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed02.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed03.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed03.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed04.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed04.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed05.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed05.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed06.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed06.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed07.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed07.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed08.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed08.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed09.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed09.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed10.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed10.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed11.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed11.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed12.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed12.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed13.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed13.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed14.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed14.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed15.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed15.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed16.png" afterPath="$PROJECT_DIR$/static/webpage/assets/Lasers/laserRed16.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/js/scripts/Level01.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Level01.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/js/scripts/Prologue.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Prologue.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/webpage/index.html" afterPath="$PROJECT_DIR$/templates/webpage/index.html" />
     </list>
     <ignored path="heroes_space.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,8 +96,8 @@
       <file leaf-file-name="Level01.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Level01.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="30" column="95" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
+            <state relative-caret-position="197">
+              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -79,8 +106,8 @@
       <file leaf-file-name="Preloader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+            <state relative-caret-position="198">
+              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -906,14 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/phaser.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63504">
@@ -922,10 +941,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Preloader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/webpage/js/scripts/Level01.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="30" column="95" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
+        <state relative-caret-position="197">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding />
         </state>
       </provider>
