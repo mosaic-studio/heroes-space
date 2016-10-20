@@ -75,13 +75,24 @@ WSGI_APPLICATION = 'heroes_space.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if 'RDS_DB_NAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
@@ -120,7 +131,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-MEDIAFILES_DIRS = [os.path.join(BASE_DIR, "media")]
+if 'RDS_DB_NAME' in os.environ:
+    INSTALLED_APPS += ('storages',)
+    AWS_STORAGE_BUCKET_NAME = 'fictional-engine'
+    AWS_ACCESS_KEY_ID = 'AKIAI7SHVJTDRAQAX3SA'
+    AWS_SECRET_ACCESS_KEY = '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'
+    AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
+
+    ALLOWED_HOSTS = ['fictional-engine-dev.sa-east-1.elasticbeanstalk.com', '127.0.0.1', 'localhost']
+
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_STORAGE = 'midasmartah.custom_storages.StaticStorage'
+    STATIC_URL = "https://{}/{}/".format(AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+
+    MEDIAFILES_LOCATION = 'media'
+    MEDIA_URL = "https://{}/{}/".format(AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+    DEFAULT_FILE_STORAGE = 'midasmartah.custom_storages.MediaStorage'
+else:
+    STATIC_URL = '/static/'
+    MEDIA_URL = '/media/'
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+    MEDIAFILES_DIRS = [os.path.join(BASE_DIR, "media")]
