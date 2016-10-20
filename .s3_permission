@@ -1,0 +1,27 @@
+{
+    "Statement": [
+        {
+          "Sid":"PublicReadForGetBucketObjects",
+          "Effect":"Allow",
+          "Principal": {
+                "AWS": "*"
+             },
+          "Action":["s3:GetObject"],
+          "Resource":["arn:aws:s3:::heroes-space/*"
+          ]
+        },
+        {
+            "Action": "s3:*",
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::heroes-space",
+                "arn:aws:s3:::heroes-space/*"
+            ],
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::911297108070:user/basic_services"
+                ]
+            }
+        }
+    ]
+}
