@@ -15,6 +15,7 @@
     game.state.add('Preloader', BasicGame.Preloader);
     game.state.add('Prologue', BasicGame.Prologue);
     game.state.add('Level01', BasicGame.Level01);
+    game.state.add('Level02', BasicGame.Level02);
 
     //  Now start the scripts state.
     game.state.start('Boot');

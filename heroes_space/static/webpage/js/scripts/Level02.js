@@ -1,22 +1,26 @@
 /**
- * Created by marlon on 14/10/16.
+ * Created by Marlon on 20/10/2016.
  */
 /* jshint browser:true */
 
 // create scripts function in BasicGame
-BasicGame.Level01 = function (game) {
+BasicGame.Level02 = function (game) {
 
 };
 
+
+livingEnemies = [];
+bulletTimeEnemy = 0;
+
 // set scripts function prototype
-BasicGame.Level01.prototype = {
+BasicGame.Level02.prototype = {
 
     init: function () {
         this.bulletTime = 0;
         this.bulletSpeed = 30;
         this.lives = 3;
         this.maxHealthShip = this.actualHealthShip = 100;
-        this.actualPoints = 50;
+        this.actualPoints = 0;
         this.gun = new Phaser.Point();
     },
 
@@ -24,22 +28,22 @@ BasicGame.Level01.prototype = {
 
     },
 
-    createMeteors: function () {
+    createEnemies: function () {
         //  Meteors
-        this.meteors = this.game.add.group();
-        this.meteors.enableBody = true;
-        this.meteors.physicsBodyType = Phaser.Physics.P2JS;
+        this.enemies = this.game.add.group();
+        this.enemies.enableBody = true;
+        this.enemies.physicsBodyType = Phaser.Physics.P2JS;
         for(var i = 0; i < 50; i++){
-            var m = this.meteors.create(this.world.randomX, this.world.randomY, 'meteor_big4');
-            m.body.setCircle(60);
-            m.body.setCollisionGroup(this.meteorCollisionGroup);
-            m.body.collides([this.meteorCollisionGroup, this.playerCollisionGroup]);
-            m.body.collides( this.bulletsCollisionGroup);
+            var m = this.enemies.create(this.world.randomX, this.world.randomY, 'enemy1');
+            m.body.setRectangle(80, 50);
+            m.body.setCollisionGroup(this.enemyCollisionGroup);
+            m.body.collides([this.enemyCollisionGroup, this.playerCollisionGroup]);
+            m.body.collides(this.bulletsCollisionGroup);
         }
 
-        this.meteor_explosions = this.game.add.group();
-        this.meteor_explosions.createMultiple(50, 'kaboom');
-        this.meteor_explosions.forEach(this.createMeteorExplosions, this);
+        this.enemy_explosions = this.game.add.group();
+        this.enemy_explosions.createMultiple(50, 'kaboom');
+        this.enemy_explosions.forEach(this.createEnemyExplosions, this);
     },
 
     createShip: function () {
@@ -49,7 +53,8 @@ BasicGame.Level01.prototype = {
         this.game.physics.p2.enable(this.ship, false);
         this.ship.body.setRectangle(80, 50);
         this.ship.body.setCollisionGroup(this.playerCollisionGroup);
-        this.ship.body.collides(this.meteorCollisionGroup, this.shipHitMeteor, this);
+        this.ship.body.collides(this.enemyCollisionGroup, this.shipHitMeteor, this);
+        // this.ship.body.collides(this.enemyBulletsCollisionGroup);
         this.game.camera.follow(this.ship);
 
         this.explosion = this.game.add.group();
@@ -79,8 +84,32 @@ BasicGame.Level01.prototype = {
             bullet.body.collideWorldBounds = false;
             bullet.body.fixedRotation = true;
             bullet.body.setCollisionGroup(this.bulletsCollisionGroup);
-            bullet.body.collides(this.meteorCollisionGroup, this.hit, this);
+            bullet.body.collides(this.enemyCollisionGroup, this.hitEnemy, this);
         }, this, false);
+    },
+
+    createEnemyBullets: function () {
+        this.enemyBullets = this.game.add.group();
+        this.enemyBullets.enableBody = true;
+        this.enemyBullets.physicsBodyType = Phaser.Physics.P2JS;
+
+        this.enemyBullets.createMultiple(50, 'enemyBullet');
+        this.enemyBullets.setAll('anchor.x', 0.5);
+        this.enemyBullets.setAll('anchor.y', 0.5);
+        this.enemyBullets.setAll('checkWorldBounds', true);
+        this.enemyBullets.setAll('outOfBoundsKill', true);
+        this.enemyBullets.setAll('outOfCameraBoundsKill', true);
+
+        this.bullets.forEach(function(bullet){
+            bullet.body.setRectangle(50, 5);
+            bullet.body.checkWorldBounds = true;
+            bullet.body.outOfBoundsKill = true;
+            bullet.body.collideWorldBounds = false;
+            bullet.body.fixedRotation = true;
+            bullet.body.setCollisionGroup(this.enemyBulletsCollisionGroup);
+            bullet.body.collides(this.playerCollisionGroup, this.hitPlayer, this);
+        }, this, false);
+
     },
 
     createExplosion: function (ship) {
@@ -89,7 +118,7 @@ BasicGame.Level01.prototype = {
         ship.animations.add('kaboom')
     },
 
-    createMeteorExplosions: function (meteor) {
+    createEnemyExplosions: function (meteor) {
         meteor.anchor.x = 0.5;
         meteor.anchor.y = 0.5;
         meteor.animations.add('kaboom');
@@ -105,8 +134,9 @@ BasicGame.Level01.prototype = {
         this.game.physics.p2.defaultRestitution = 0.8;
 
         this.playerCollisionGroup = this.game.physics.p2.createCollisionGroup();
-        this.meteorCollisionGroup = this.game.physics.p2.createCollisionGroup();
+        this.enemyCollisionGroup = this.game.physics.p2.createCollisionGroup();
         this.bulletsCollisionGroup = this.game.physics.p2.createCollisionGroup();
+        this.enemyBulletsCollisionGroup = this.game.physics.p2.createCollisionGroup();
 
         //  This part is vital if you want the objects with their own collision groups to still collide with the world bounds
         //  (which we do) - what this does is adjust the bounds to use its own collision group.
@@ -118,11 +148,12 @@ BasicGame.Level01.prototype = {
         this.space = this.game.add.tileSprite(0, 0, 800, 800, 'space');
         this.space.fixedToCamera = true;
 
-        this.createMeteors();
+        this.createEnemies();
 
         this.createShip();
 
         this.createBullets();
+        this.createEnemyBullets();
 
         //  scripts input
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -131,22 +162,8 @@ BasicGame.Level01.prototype = {
         this.loadUI();
     },
 
-    nextLevel: function () {
-        this.state.start('Level02');
-    },
-
-    checkWin: function () {
-        if(this.actualPoints === 50){
-            this.stateText.text=" You Win \n Press C";
-            this.stateText.visible = true;
-
-            //the "click to restart" handler
-            var key2 = this.game.input.keyboard.addKey(Phaser.Keyboard.C);
-            key2.onDown.addOnce(this.nextLevel, this);
-        }
-    },
-
     update: function(){
+        this.enemies.forEachAlive(this.moveEnemies,this);
         if (this.ship.alive) {
             if (this.cursors.up.isDown) {
                 this.ship.body.thrust(400);
@@ -167,7 +184,10 @@ BasicGame.Level01.prototype = {
             if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
                 this.fireBullet();
             }
-            this.checkWin();
+            if (this.game.time.now > bulletTimeEnemy)
+            {
+                this.enemyFireBullet();
+            }
         }
 
         if (!this.game.camera.atLimit.x)
@@ -180,53 +200,97 @@ BasicGame.Level01.prototype = {
             this.space.tilePosition.y -= (this.ship.body.velocity.y * this.game.time.physicsElapsed);
         }
 
-        // this.screenWrap(this.ship);
-
-        // this.bullets.forEachExists(this);
     },
 
 
-    hit: function(bullet, meteor){
-        meteor.ship.kill();
+    moveEnemies: function (enemy) {
+        this.accelerateToObject(enemy,this.ship,this.game.rnd.integerInRange(30, 100));
+    },
+
+    accelerateToObject: function(obj1, obj2, speed) {
+        if (typeof speed === 'undefined') { speed = 60; }
+        var angle = Math.atan2(obj2.y - obj1.y, obj2.x - obj1.x);
+        obj1.body.rotation = angle + this.game.math.degToRad(90);  // correct angle of angry bullets (depends on the sprite used)
+        obj1.body.force.x = Math.cos(angle) * speed;    // accelerateToObject
+        obj1.body.force.y = Math.sin(angle) * speed;
+    },
+
+    hitEnemy: function(bullet, enemy){
+        enemy.ship.kill();
         bullet.ship.kill();
-        var explosion = this.meteor_explosions.getFirstExists(false);
-        explosion.reset(meteor.x, meteor.y);
+        var explosion = this.enemy_explosions.getFirstExists(false);
+        explosion.reset(enemy.x, enemy.y);
         explosion.play('kaboom', 30, false, true);
         this.actualPoints += 1;
     },
 
+    hitPlayer: function(bullet, ship){
+        bullet.ship.kill();
+        this.checkHealth(ship, 10);
+        // var explosion = this.enemy_explosions.getFirstExists(false);
+        // explosion.reset(ship.x, ship.y);
+        // explosion.play('kaboom', 30, false, true);
+        // this.actualPoints += 1;
+    },
 
-    shipHitMeteor: function (ship, meteor) {
-        meteor.ship.kill();
-        var mExplosion = this.meteor_explosions.getFirstExists(false);
-        mExplosion.reset(meteor.x, meteor.y);
-        mExplosion.play('kaboom', 30, false, true);
-        this.actualPoints += 1;
-        this.actualHealthShip -= 25;
+
+    checkHealth: function (ship, damage) {
+        this.actualHealthShip -= damage;
         this.myHealthBar.setPercent(this.actualHealthShip);
         this.ship.body.setZeroVelocity();
-        if(this.actualHealthShip === 0){
+        if (this.actualHealthShip === 0) {
             this.lives -= 1;
             this.ship.kill();
             var explosion = this.explosion.getFirstExists(false);
             explosion.reset(ship.x, ship.y);
             explosion.play('kaboom', 30, false, true);
-            if(this.lives <= 0){
-                this.meteors.callAll('kill');
-                this.stateText.text=" GAME OVER \n Pressione R";
+            if (this.lives <= 0) {
+                this.enemies.callAll('kill');
+                this.stateText.text = " GAME OVER \n Pressione R";
                 this.stateText.visible = true;
 
                 //the "click to restart" handler
                 var key2 = this.game.input.keyboard.addKey(Phaser.Keyboard.R);
                 key2.onDown.addOnce(this.restart, this);
                 // this.game.input.onTap.addOnce(this.restart, this);
-            }else{
+            } else {
                 this.ship.revive();
                 this.actualHealthShip = this.maxHealthShip;
                 this.myHealthBar.setPercent(this.actualHealthShip);
             }
         }
+    },
+
+    shipHitMeteor: function (ship, enemy) {
+        enemy.ship.kill();
+        var mExplosion = this.enemy_explosions.getFirstExists(false);
+        mExplosion.reset(enemy.x, enemy.y);
+        mExplosion.play('kaboom', 30, false, true);
+        this.actualPoints += 1;
+        this.checkHealth(ship, 25);
         // body2.removeFromWorld();
+    },
+
+    enemyFireBullet: function () {
+        var nextBullet = this.enemyBullets.getFirstExists(false);
+        this.enemies.forEachAlive(function (enemy) {
+            livingEnemies.push(enemy)
+        });
+        if(nextBullet && livingEnemies.length > 0){
+            var random = this.game.rnd.integerInRange(0, livingEnemies.length-1);
+            var enemy = livingEnemies[random];
+            var gun = new Phaser.Point();
+            gun.setTo(0, (enemy.height-40)*-1);
+            gun.rotate(1, 2, enemy.rotation);
+            nextBullet.reset(enemy.body.x + gun.x, enemy.body.y + gun.y);
+            nextBullet.rotation = enemy.rotation;
+
+            nextBullet.body.velocity.x = gun.x * this.bulletSpeed + enemy.body.velocity.x;
+            nextBullet.body.velocity.y = gun.y * this.bulletSpeed + enemy.body.velocity.y;
+            nextBullet.lifespan = 500;
+            bulletTimeEnemy = this.game.time.now + 1000;
+        }
+
     },
 
     fireBullet: function () {
@@ -282,8 +346,10 @@ BasicGame.Level01.prototype = {
     },
 
     restart: function () {
-        this.meteors.removeAll();
-        this.createMeteors();
+        this.enemies.removeAll();
+        this.createEnemies();
+        this.bullets.removeAll();
+        this.createEnemyBullets();
         this.ship.revive();
         this.actualPoints = 0;
         this.lives = 3;
