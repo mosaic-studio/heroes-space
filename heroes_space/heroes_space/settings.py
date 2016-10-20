@@ -133,20 +133,20 @@ USE_TZ = True
 
 if 'RDS_DB_NAME' in os.environ:
     INSTALLED_APPS += ('storages',)
-    AWS_STORAGE_BUCKET_NAME = 'fictional-engine'
-    AWS_ACCESS_KEY_ID = 'AKIAI7SHVJTDRAQAX3SA'
-    AWS_SECRET_ACCESS_KEY = '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'
+    AWS_STORAGE_BUCKET_NAME = 'heroes-space'
+    AWS_ACCESS_KEY_ID = 'AKIAJIOURZA57CIVG6HQ'
+    AWS_SECRET_ACCESS_KEY = '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'
     AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
 
-    ALLOWED_HOSTS = ['fictional-engine-dev.sa-east-1.elasticbeanstalk.com', '127.0.0.1', 'localhost']
+    ALLOWED_HOSTS = ['heroes-space-dev.sa-east-1.elasticbeanstalk.com', '127.0.0.1', 'localhost']
 
     STATICFILES_LOCATION = 'static'
-    STATICFILES_STORAGE = 'midasmartah.custom_storages.StaticStorage'
+    STATICFILES_STORAGE = 'heroes_space.custom_storages.StaticStorage'
     STATIC_URL = "https://{}/{}/".format(AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
     MEDIAFILES_LOCATION = 'media'
     MEDIA_URL = "https://{}/{}/".format(AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-    DEFAULT_FILE_STORAGE = 'midasmartah.custom_storages.MediaStorage'
+    DEFAULT_FILE_STORAGE = 'heroes_space.custom_storages.MediaStorage'
 else:
     STATIC_URL = '/static/'
     MEDIA_URL = '/media/'
