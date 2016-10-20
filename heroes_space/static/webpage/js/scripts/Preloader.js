@@ -16,18 +16,18 @@ BasicGame.Preloader.prototype = {
     },
 
     preload: function () {
-        this.load.image('space', 'static/webpage/assets/Backgrounds/darkPurple.png');
-        this.load.image('bullet', 'static/webpage/assets/Lasers/laserBlue01.png');
-        this.load.image('enemyBullet', 'static/webpage/assets/Lasers/laserRed01.png');
-        this.load.image('ship', 'static/webpage/assets/Ships/playerShip1_blue.png');
-        this.load.image('enemy1', 'static/webpage/assets/Enemies/enemyBlack1.png');
-        this.load.image('button', 'static/webpage/assets/UI/buttonBlue.png');
-        this.load.image('star', 'static/webpage/assets/Backgrounds/star2.png');
-        this.load.image('miniship', 'static/webpage/assets/UI/playerLife1_blue.png');
-        this.load.image('meteor_big4', 'static/webpage/assets/Meteors/meteorBrown_big4.png');
+        this.load.image('space', 'webpage/assets/Backgrounds/darkPurple.png');
+        this.load.image('bullet', 'webpage/assets/Lasers/laserBlue01.png');
+        this.load.image('enemyBullet', 'webpage/assets/Lasers/laserRed01.png');
+        this.load.image('ship', 'webpage/assets/Ships/playerShip1_blue.png');
+        this.load.image('enemy1', 'webpage/assets/Enemies/enemyBlack1.png');
+        this.load.image('button', 'webpage/assets/UI/buttonBlue.png');
+        this.load.image('star', 'webpage/assets/Backgrounds/star2.png');
+        this.load.image('miniship', 'webpage/assets/UI/playerLife1_blue.png');
+        this.load.image('meteor_big4', 'webpage/assets/Meteors/meteorBrown_big4.png');
         this.load.spritesheet('ss_laser_blue_explosion',
-            'static/webpage/assets/Animations/laser_blue_explosion.png', 48, 46);
-        this.load.spritesheet('kaboom', 'static/webpage/assets/Animations/explode.png', 128, 128);
+            'webpage/assets/Animations/laser_blue_explosion.png', 48, 46);
+        this.load.spritesheet('kaboom', 'webpage/assets/Animations/explode.png', 128, 128);
     },
 
     create: function () {
