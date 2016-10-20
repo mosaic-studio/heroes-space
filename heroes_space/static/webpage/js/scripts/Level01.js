@@ -16,7 +16,7 @@ BasicGame.Level01.prototype = {
         this.bulletSpeed = 30;
         this.lives = 3;
         this.maxHealthShip = this.actualHealthShip = 100;
-        this.actualPoints = 50;
+        this.actualPoints = 0;
         this.gun = new Phaser.Point();
     },
 

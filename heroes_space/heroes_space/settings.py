@@ -140,6 +140,7 @@ if 'RDS_DB_NAME' in os.environ:
 
     ALLOWED_HOSTS = ['heroes-space-dev.sa-east-1.elasticbeanstalk.com', '127.0.0.1', 'localhost']
 
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
     STATICFILES_LOCATION = 'static'
     STATICFILES_STORAGE = 'heroes_space.custom_storages.StaticStorage'
     STATIC_URL = "https://{}/{}/".format(AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
