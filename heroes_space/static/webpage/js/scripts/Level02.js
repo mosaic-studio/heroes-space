@@ -53,7 +53,7 @@ BasicGame.Level02.prototype = {
         this.game.physics.p2.enable(this.ship, false);
         this.ship.body.setRectangle(80, 50);
         this.ship.body.setCollisionGroup(this.playerCollisionGroup);
-        this.ship.body.collides(this.enemyCollisionGroup, this.shipHitMeteor, this);
+        this.ship.body.collides(this.enemyCollisionGroup, this.shipHitEnemy, this);
         // this.ship.body.collides(this.enemyBulletsCollisionGroup);
         this.game.camera.follow(this.ship);
 
@@ -153,7 +153,7 @@ BasicGame.Level02.prototype = {
         this.createShip();
 
         this.createBullets();
-        this.createEnemyBullets();
+        // this.createEnemyBullets();
 
         //  scripts input
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -184,10 +184,13 @@ BasicGame.Level02.prototype = {
             if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
                 this.fireBullet();
             }
-            if (this.game.time.now > bulletTimeEnemy)
+
+            this.checkWin();
+
+            /* if (this.game.time.now > bulletTimeEnemy)
             {
                 this.enemyFireBullet();
-            }
+            }*/
         }
 
         if (!this.game.camera.atLimit.x)
@@ -201,6 +204,14 @@ BasicGame.Level02.prototype = {
         }
 
     },
+
+    checkWin: function () {
+        if(this.enemies.countLiving() === 0){
+            this.stateText.text=" You Win";
+            this.stateText.visible = true;
+        }
+    },
+
 
 
     moveEnemies: function (enemy) {
@@ -261,7 +272,7 @@ BasicGame.Level02.prototype = {
         }
     },
 
-    shipHitMeteor: function (ship, enemy) {
+    shipHitEnemy: function (ship, enemy) {
         enemy.ship.kill();
         var mExplosion = this.enemy_explosions.getFirstExists(false);
         mExplosion.reset(enemy.x, enemy.y);
@@ -324,12 +335,22 @@ BasicGame.Level02.prototype = {
         });
         this.txtLives.anchor.setTo(0.5);
         this.txtLives.fixedToCamera = true;
-        this.txtPoints = this.game.add.text(this.game.width - 100, 25, ""+this.actualPoints+"/50", {
+        this.txtPoints = this.game.add.text(this.game.width - 100, 25, ""+this.actualPoints, {
             font: "20px Arial",
             fill: "#fff"
         });
+
         this.txtPoints.anchor.setTo(0.5);
         this.txtPoints.fixedToCamera = true;
+
+        this.txtEnemyRemaining = this.game.add.text(this.game.width - 300, 25,
+            "Inimigos restantes: "+this.enemies.countLiving(), {
+            font: "20px Arial",
+            fill: "#fff"
+        });
+
+        this.txtEnemyRemaining.anchor.setTo(0.5);
+        this.txtEnemyRemaining.fixedToCamera = true;
 
         //  Text
         this.stateText = this.game.add.text(this.game.width/2, this.game.height/2,' ',
@@ -341,7 +362,8 @@ BasicGame.Level02.prototype = {
     },
 
     render: function() {
-        this.txtPoints.setText(""+this.actualPoints+"/50");
+        this.txtPoints.setText(""+this.actualPoints);
+        this.txtEnemyRemaining.setText("Inimigos restantes: "+this.enemies.countLiving());
         this.txtLives.setText("x"+this.lives);
     },
 

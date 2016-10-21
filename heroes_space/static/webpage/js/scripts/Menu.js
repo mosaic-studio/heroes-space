@@ -9,7 +9,6 @@ BasicGame.Menu = function (game) {
 
 };
 
-var titlescreen;
 
 // set scripts function prototype
 BasicGame.Menu.prototype = {
@@ -28,14 +27,15 @@ BasicGame.Menu.prototype = {
         this.game.renderer.roundPixels = true;
 
         this.createButton(this.game, "Modo Campanha", this.game.world.centerX, this.game.world.centerY + 32, 300, 50, function () {
-           this.state.start('Prologue');
+            this.state.start('Prologue');
         });
         this.createButton(this.game, "Multiplayer", this.game.world.centerX, this.game.world.centerY + 100, 300, 50, function () {
-           // this.state.start('Multiplayer');
+            // this.state.start('Multiplayer');
             console.log('Multiplayer');
         });
-        titlescreen = this.add.sprite(this.game.world.centerX, this.game.world.centerY - 192, 'titlescreen');
-        titlescreen.anchor.setTo(0.5, 0.5);
+
+        // var titlescreen = this.add.sprite(this.game.world.centerX, this.game.world.centerY - 192, 'titulo');
+        // titlescreen.anchor.setTo(0.5, 0.5);
 
     },
 

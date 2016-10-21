@@ -78,6 +78,10 @@ class Itens(models.Model):
     pk_item = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     preco = models.IntegerField()
+    resistencia = models.IntegerField(default=0)
+    agilidade = models.IntegerField(default=0)
+    poder_ataque = models.IntegerField(default=0)
+    vida = models.IntegerField(default=0)
 
     def __str__(self):
         return "{} - {}".format(self.nome, self.preco)
@@ -85,26 +89,19 @@ class Itens(models.Model):
 
 class Equipamentos(models.Model):
     pk_item = models.OneToOneField('Itens', primary_key=True, related_name='item_equipamento')
-    resistencia = models.IntegerField(default=0)
-    agilidade = models.IntegerField(default=0)
-    poder_ataque = models.IntegerField(default=0)
-    vida = models.IntegerField(default=0)
+    durabilidade = models.IntegerField(default=0)
+    tipo = models.CharField(max_length=50, default="a")
 
     def __str__(self):
-        return "{} - {} - {} - {} - {} - {}".format(self.pk_item.nome, self.preco, self.resistencia, self.agilidade,
-                                                    self.poder_ataque, self.vida)
+        return "{} - {} - {}".format(self.pk_item.nome, self.durabilidade, self.tipo)
 
 
 class Consumiveis(models.Model):
     pk_item = models.OneToOneField('Itens', primary_key=True, related_name='item_consumivel')
-    resistencia = models.IntegerField(default=0)
-    agilidade = models.IntegerField(default=0)
-    poder_ataque = models.IntegerField(default=0)
-    vida = models.IntegerField(default=0)
+    duracao = models.IntegerField(default=0)
 
     def __str__(self):
-        return "{} - {} - {} - {} - {} - {}".format(self.pk_item.nome, self.preco, self.resistencia, self.agilidade,
-                                                    self.poder_ataque, self.vida)
+        return "{} - {}".format(self.pk_item.nome, self.duracao)
 
 
 class Campanhas(models.Model):
@@ -118,7 +115,7 @@ class Campanhas(models.Model):
 class Missoes(models.Model):
     pk_missao = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=150)
-    campanha = models.OneToOneField('Campanhas', on_delete=models.CASCADE, related_name='campanha_missao')
+    campanha = models.ForeignKey('Campanhas', on_delete=models.CASCADE, related_name='campanha_missao')
     progresso = models.ManyToManyField('Herois', related_name='progresso', through='ProgressoHeroi')
 
     def __str__(self):

@@ -16,6 +16,9 @@ BasicGame.Preloader.prototype = {
     },
 
     preload: function () {
+        // this.load.baseURL = "https://heroes-space.s3.amazonaws.com/";
+        // this.load.crossOrigin = 'anonymous';
+        // this.load.image('titulo', 'static/webpage/assets/logo.png');
         this.load.image('space', 'static/webpage/assets/Backgrounds/darkPurple.png');
         this.load.image('bullet', 'static/webpage/assets/Lasers/laserBlue01.png');
         this.load.image('enemyBullet', 'static/webpage/assets/Lasers/laserRed01.png');
