@@ -45,6 +45,7 @@ def logar(request):
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = login(request, form.get_user())
+            LogSpaceHeroes.objects.create(user=form.get_user(), action='Logar conta no site')
             return HttpResponseRedirect("/")
         else:
             dados["form"] = form
