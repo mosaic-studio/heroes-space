@@ -31,6 +31,7 @@ def criar_conta(request):
                                     password=form.cleaned_data['password'])
             login(request, new_user)
             LogSpaceHeroes.objects.create(user=user, action='Criar conta no site')
+            LogSpaceHeroes.objects.create(user=user, action='Logar conta no site')
             return HttpResponseRedirect("/")
         else:
             dados["erros"] = form.errors
