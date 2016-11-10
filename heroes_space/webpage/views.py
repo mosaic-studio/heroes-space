@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
 from webpage.forms import CreateUserForm
 from webpage.models import LogSpaceHeroes, Herois, Classes, Campanhas, ProgressoHeroi, Missoes
@@ -50,6 +51,7 @@ def logar(request):
     return render(request, "registration/login.html", dados)
 
 
+@csrf_exempt
 @login_required
 def criar_heroi_request(request):
     if request.method == "POST":
@@ -64,6 +66,7 @@ def criar_heroi_function(request):
     return heroi
 
 
+@csrf_exempt
 @login_required
 def iniciar_nova_campanha(request):
     if request.method == "POST":
@@ -73,6 +76,30 @@ def iniciar_nova_campanha(request):
         ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
         LogSpaceHeroes.objects.create(user=request.user, action='Iniciar nova campanha')
         return JsonResponse({"message": "Campanha criada com sucesso", "status": True})
+
+
+@csrf_exempt
+@login_required
+def registrar_fase1(request):
+    if request.method == "POST":
+        campanha = Campanhas.objects.get(nome="Descoberta")
+        missao = Missoes.objects.get(campanha=campanha, ordem=1)
+        heroi = Herois.objects.filter(usuario=request.user)[0]
+        ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
+        LogSpaceHeroes.objects.create(user=request.user, action='Iniciar fase 1')
+        return JsonResponse({"message": "Iniciar fase 1", "status": True})
+
+
+@csrf_exempt
+@login_required
+def registrar_fase2(request):
+    if request.method == "POST":
+        campanha = Campanhas.objects.get(nome="Descoberta")
+        missao = Missoes.objects.get(campanha=campanha, ordem=2)
+        heroi = Herois.objects.filter(usuario=request.user)[0]
+        ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
+        LogSpaceHeroes.objects.create(user=request.user, action='Iniciar fase 2')
+        return JsonResponse({"message": "Iniciar fase 2", "status": True})
 
 
 @login_required

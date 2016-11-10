@@ -132,6 +132,10 @@ BasicGame.Level01.prototype = {
     },
 
     nextLevel: function () {
+        var request = new XMLHttpRequest();
+        request.open('POST', '/api/registrar_fase02/', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send();
         this.state.start('Level02');
     },
 

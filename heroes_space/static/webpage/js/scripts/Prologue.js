@@ -90,6 +90,10 @@ BasicGame.Prologue.prototype = {
         }
         if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
         {
+            var request = new XMLHttpRequest();
+            request.open('POST', '/api/registrar_fase01/', true);
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            request.send();
             this.state.start('Level01')
         }
     },
@@ -118,6 +122,10 @@ BasicGame.Prologue.prototype = {
             line = '';
             this.game.time.events.repeat(80, content[index].length + 1, this.updateLine, this);
         }else{
+            var request = new XMLHttpRequest();
+            request.open('POST', '/api/registrar_fase01/', true);
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            request.send();
             this.state.start('Level01');
         }
     }

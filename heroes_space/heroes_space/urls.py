@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^login/$', views.logar),
     url(r'^criar_conta/$', views.criar_conta),
     url(r'^api/iniciar_nova_campanha/$', views.iniciar_nova_campanha),
-    url(r'^api/criar_heroi/$', views.criar_heroi_request),
+    url(r'^api/registrar_fase01/$', views.registrar_fase1),
+    url(r'^api/registrar_fase02/$', views.registrar_fase2),
     url(r'^api/criar_heroi/$', views.criar_heroi_request),
 ]
