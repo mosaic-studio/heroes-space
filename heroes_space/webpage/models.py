@@ -43,8 +43,8 @@ class Classes(models.Model):
 class Herois(models.Model):
     pk_heroi = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
-    nivel = models.PositiveIntegerField()
-    experiencia = models.PositiveIntegerField()
+    nivel = models.PositiveIntegerField(default=1)
+    experiencia = models.PositiveIntegerField(default=0)
     classe = models.ForeignKey('Classes', on_delete=models.CASCADE,
                                related_name='classe_heroi')
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
@@ -106,7 +106,7 @@ class Consumiveis(models.Model):
 
 class Campanhas(models.Model):
     pk_campanha = models.AutoField(primary_key=True)
-    nome = models.CharField(max_length=100)
+    nome = models.CharField(max_length=100, db_index=True, unique=True)
 
     def __str__(self):
         return "{} - {}".format(self.pk_campanha, self.nome)
@@ -114,12 +114,16 @@ class Campanhas(models.Model):
 
 class Missoes(models.Model):
     pk_missao = models.AutoField(primary_key=True)
-    nome = models.CharField(max_length=150)
+    nome = models.CharField(max_length=150, db_index=True)
     campanha = models.ForeignKey('Campanhas', on_delete=models.CASCADE, related_name='campanha_missao')
+    ordem = models.PositiveIntegerField(default=1)
     progresso = models.ManyToManyField('Herois', related_name='progresso', through='ProgressoHeroi')
 
     def __str__(self):
         return "{} - {}".format(self.pk_missao, self.nome)
+
+    class Meta:
+        unique_together = (('campanha', 'ordem'),)
 
 
 class ProgressoHeroi(models.Model):
@@ -129,3 +133,13 @@ class ProgressoHeroi(models.Model):
 
     def __str__(self):
         return "{} - {} - {}".format(self.missao.nome, self.heroi.nome, self.pontuacao)
+
+
+class LogSpaceHeroes(models.Model):
+    pk_log = models.AutoField(primary_key=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='user_log')
+    action = models.CharField(max_length=50)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "{} - {} - {}".format(self.user.username, self.date, self.action)

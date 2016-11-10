@@ -27,7 +27,26 @@ BasicGame.Menu.prototype = {
         this.game.renderer.roundPixels = true;
 
         this.createButton(this.game, "Modo Campanha", this.game.world.centerX, this.game.world.centerY + 32, 300, 50, function () {
+
             this.state.start('Prologue');
+            /*var request = $.ajax({
+                url: "/api/iniciar_nova_campanha/",
+                type: "post",
+                data: {},
+                dataType: 'json'
+            });
+
+            request.done(function (response, textStatus, jqXHR) {
+                console.log("Request funcionou!");
+            });
+
+            request.fail(function (jqXHR, textStatus, errorThrown) {
+                console.error("The following error occurred: " + textStatus, errorThrown);
+            });
+
+            request.always(function () {
+                $inputs.prop("disabled", false);
+            });*/
         });
         this.createButton(this.game, "Multiplayer", this.game.world.centerX, this.game.world.centerY + 100, 300, 50, function () {
             // this.state.start('Multiplayer');

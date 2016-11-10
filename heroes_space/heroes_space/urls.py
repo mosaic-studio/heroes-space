@@ -23,4 +23,7 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^login/$', views.logar),
     url(r'^criar_conta/$', views.criar_conta),
+    url(r'^api/iniciar_nova_campanha/$', views.iniciar_nova_campanha),
+    url(r'^api/criar_heroi/$', views.criar_heroi_request),
+    url(r'^api/criar_heroi/$', views.criar_heroi_request),
 ]

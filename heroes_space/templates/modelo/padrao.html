@@ -3,6 +3,8 @@
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
+
+        <script href="{% static 'js/jquery.min.js' %}"></script>
         {% block preload_static %}
 
         {% endblock %}
@@ -20,7 +22,6 @@
 
         {% endblock %}
 
-        <script type="application/javascript" href="{% static 'js/jquery-3.1.1.min.js' %}"></script>
         <script type="application/javascript" href="{% static 'js/bootstrap.js' %}"></script>
         {% block scritps %}
 
