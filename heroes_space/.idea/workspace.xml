@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b597871-607b-4294-8ea1-66dbec2f3688" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heroes_space/urls.py" afterPath="$PROJECT_DIR$/heroes_space/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/js/scripts/Level01.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Level01.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/js/scripts/Menu.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/webpage/js/scripts/Prologue.js" afterPath="$PROJECT_DIR$/static/webpage/js/scripts/Prologue.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpage/views.py" afterPath="$PROJECT_DIR$/webpage/views.py" />
-    </list>
+    <list default="true" id="2b597871-607b-4294-8ea1-66dbec2f3688" name="Default" comment="" />
     <ignored path="heroes_space.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -591,7 +585,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1366" height="708" extended-state="7" />
+    <frame x="0" y="27" width="1366" height="708" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
