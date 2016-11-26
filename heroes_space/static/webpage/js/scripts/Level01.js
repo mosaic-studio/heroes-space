@@ -18,6 +18,7 @@ BasicGame.Level01.prototype = {
         this.maxHealthShip = this.actualHealthShip = 100;
         this.actualPoints = 0;
         this.gun = new Phaser.Point();
+        this.level_id = 2;
     },
 
     preload: function () {
@@ -133,9 +134,10 @@ BasicGame.Level01.prototype = {
 
     nextLevel: function () {
         var request = new XMLHttpRequest();
+        var params = "missao="+this.level_id;
         request.open('POST', '/api/registrar_fase02/', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-        request.send();
+        request.send(params);
         this.state.start('Level02');
     },
 

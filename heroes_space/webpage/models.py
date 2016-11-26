@@ -113,26 +113,25 @@ class Campanhas(models.Model):
 
 
 class Missoes(models.Model):
-    pk_missao = models.AutoField(primary_key=True)
+    pk_missao = models.IntegerField(primary_key=True)
     nome = models.CharField(max_length=150, db_index=True)
     campanha = models.ForeignKey('Campanhas', on_delete=models.CASCADE, related_name='campanha_missao')
-    ordem = models.PositiveIntegerField(default=1)
-    progresso = models.ManyToManyField('Herois', related_name='progresso', through='ProgressoHeroi')
 
     def __str__(self):
         return "{} - {}".format(self.pk_missao, self.nome)
 
-    class Meta:
-        unique_together = (('campanha', 'ordem'),)
-
 
 class ProgressoHeroi(models.Model):
+    pk_progresso = models.AutoField(primary_key=True)
     missao = models.ForeignKey('Missoes', related_name='progresso_missao', on_delete=models.CASCADE)
     heroi = models.ForeignKey('Herois', related_name='progresso_heroi', on_delete=models.CASCADE)
     pontuacao = models.IntegerField(default=0)
 
     def __str__(self):
         return "{} - {} - {}".format(self.missao.nome, self.heroi.nome, self.pontuacao)
+
+    class Meta:
+        unique_together = (('missao', 'heroi'),)
 
 
 class LogSpaceHeroes(models.Model):

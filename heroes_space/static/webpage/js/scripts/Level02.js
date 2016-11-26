@@ -22,6 +22,7 @@ BasicGame.Level02.prototype = {
         this.maxHealthShip = this.actualHealthShip = 100;
         this.actualPoints = 0;
         this.gun = new Phaser.Point();
+        this.level_id = 3;
     },
 
     preload: function () {

@@ -14,6 +14,8 @@ class Command(BaseCommand):
         camp_3 = Campanhas.objects.create(nome="Invasão")
         camp_4 = Campanhas.objects.create(nome="Ato Final")
 
-        Missoes.objects.create(campanha=camp_1, nome="Prólogo", ordem=1)
-        Missoes.objects.create(campanha=camp_2, nome="Explorando o Universo", ordem=1)
-        Missoes.objects.create(campanha=camp_2, nome="Primeiro Contato", ordem=2)
+        Missoes.objects.create(campanha=camp_1, nome="Prólogo", pk_missao=1)
+        Missoes.objects.create(campanha=camp_2, nome="Explorando o Universo", pk_missao=2)
+        Missoes.objects.create(campanha=camp_2, nome="Primeiro Contato", pk_missao=3)
+        Missoes.objects.create(campanha=camp_2, nome="Plano de Fuga", pk_missao=4)
+        Missoes.objects.create(campanha=camp_2, nome="Ilusão", pk_missao=5)

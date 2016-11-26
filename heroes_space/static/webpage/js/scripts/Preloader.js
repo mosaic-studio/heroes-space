@@ -16,13 +16,15 @@ BasicGame.Preloader.prototype = {
     },
 
     preload: function () {
-        this.load.baseURL = "https://heroes-space.s3.amazonaws.com/";
-        this.load.crossOrigin = 'anonymous';
+        // this.load.baseURL = "https://heroes-space.s3.amazonaws.com/";
+        // this.load.crossOrigin = 'anonymous';
         // this.load.image('titulo', 'static/webpage/assets/logo.png');
         this.load.image('space', 'static/webpage/assets/Backgrounds/darkPurple.png');
         this.load.image('bullet', 'static/webpage/assets/Lasers/laserBlue01.png');
         this.load.image('enemyBullet', 'static/webpage/assets/Lasers/laserRed01.png');
-        this.load.image('ship', 'static/webpage/assets/Ships/playerShip1_blue.png');
+        this.load.image('Hybrid', 'static/webpage/assets/Ships/playerShip1_blue.png');
+        this.load.image('Tank', 'static/webpage/assets/Ships/playerShip2_green.png');
+        this.load.image('Faster', 'static/webpage/assets/Ships/playerShip3_orange.png');
         this.load.image('enemy1', 'static/webpage/assets/Enemies/enemyBlack1.png');
         this.load.image('button', 'static/webpage/assets/UI/buttonBlue.png');
         this.load.image('star', 'static/webpage/assets/Backgrounds/star2.png');

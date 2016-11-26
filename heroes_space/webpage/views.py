@@ -2,6 +2,7 @@ import csv
 from django.contrib.auth import login, authenticate, get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
+from django.db.models import Sum
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
@@ -46,7 +47,6 @@ def logar(request):
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = login(request, form.get_user())
-            LogSpaceHeroes.objects.create(user=form.get_user(), action='Logar conta no site')
             return HttpResponseRedirect("/")
         else:
             dados["form"] = form
@@ -57,12 +57,16 @@ def logar(request):
 @login_required
 def criar_heroi_request(request):
     if request.method == "POST":
-        criar_heroi_function(request)
-        return JsonResponse({"message": "Herói criado com sucesso", "status": True})
+        classe = request.POST.get("classe", "Hybrid")
+        heroi = criar_heroi_function(request, classe=classe)
+        return JsonResponse({"message": "Herói criado com sucesso", "success": True, "heroi": heroi.pk,
+                             "nivel": heroi.nivel, "classe": heroi.classe.nome,
+                             "resistencia": heroi.classe.resistencia, "agilidade": heroi.classe.agilidade,
+                             "poder_ataque": heroi.classe.poder_ataque, "vida": heroi.classe.vida})
 
 
-def criar_heroi_function(request):
-    classe = Classes.objects.get(nome="Hybrid")
+def criar_heroi_function(request, classe="Hybrid"):
+    classe = Classes.objects.get(nome=classe)
     heroi = Herois.objects.create(nome=request.user, classe=classe, usuario=request.user)
     LogSpaceHeroes.objects.create(user=request.user, action='Criar herói')
     return heroi
@@ -73,35 +77,102 @@ def criar_heroi_function(request):
 def iniciar_nova_campanha(request):
     if request.method == "POST":
         campanha = Campanhas.objects.get(nome="Prólogo")
-        missao = Missoes.objects.get(campanha=campanha, ordem=1)
-        heroi = criar_heroi_function(request)
+        missao = Missoes.objects.get(campanha=campanha, pk_missao=1)
+        id_heroi = request.POST.get("heroi")
+        heroi = Herois.objects.get(pk_heroi=id_heroi)
         ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
         LogSpaceHeroes.objects.create(user=request.user, action='Iniciar nova campanha')
-        return JsonResponse({"message": "Campanha criada com sucesso", "status": True})
+        return JsonResponse({"message": "Campanha criada com sucesso", "success": True})
+
+
+@csrf_exempt
+@login_required
+def escolher_heroi(request):
+    if request.method == "POST":
+        id_heroi = request.POST.get("heroi")
+        heroi = Herois.objects.select_for_update().get(pk_heroi=id_heroi)
+        progresso = ProgressoHeroi.objects.select_related().filter(heroi=heroi).order_by('missao__pk_missao')[0]
+        return JsonResponse({"missao": progresso.missao.pk_missao, "nivel": heroi.nivel, "classe": heroi.classe.nome,
+                             "resistencia": heroi.classe.resistencia, "agilidade": heroi.classe.agilidade,
+                             "poder_ataque": heroi.classe.poder_ataque, "vida": heroi.classe.vida})
 
 
 @csrf_exempt
 @login_required
 def registrar_fase1(request):
     if request.method == "POST":
-        campanha = Campanhas.objects.get(nome="Descoberta")
-        missao = Missoes.objects.get(campanha=campanha, ordem=1)
-        heroi = Herois.objects.filter(usuario=request.user)[0]
+        missao = Missoes.objects.get(pk_missao=2)
+        id_heroi = request.POST.get("heroi")
+        heroi = Herois.objects.get(pk_heroi=id_heroi)
         ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
         LogSpaceHeroes.objects.create(user=request.user, action='Iniciar fase 1')
-        return JsonResponse({"message": "Iniciar fase 1", "status": True})
+        return JsonResponse({"message": "Iniciar fase 1", "success": True})
 
 
 @csrf_exempt
 @login_required
 def registrar_fase2(request):
     if request.method == "POST":
-        campanha = Campanhas.objects.get(nome="Descoberta")
-        missao = Missoes.objects.get(campanha=campanha, ordem=2)
-        heroi = Herois.objects.filter(usuario=request.user)[0]
+        missao = Missoes.objects.get(pk_missao=3)
+        id_heroi = request.POST.get("heroi")
+        heroi = Herois.objects.get(pk_heroi=id_heroi)
         ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
         LogSpaceHeroes.objects.create(user=request.user, action='Iniciar fase 2')
-        return JsonResponse({"message": "Iniciar fase 2", "status": True})
+        return JsonResponse({"message": "Iniciar fase 2", "success": True})
+
+
+@csrf_exempt
+@login_required
+def registrar_fase3(request):
+    if request.method == "POST":
+        missao = Missoes.objects.get(pk_missao=4)
+        id_heroi = request.POST.get("heroi")
+        heroi = Herois.objects.get(pk_heroi=id_heroi)
+        ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
+        LogSpaceHeroes.objects.create(user=request.user, action='Iniciar fase 3')
+        return JsonResponse({"message": "Iniciar fase 3", "success": True})
+
+
+@csrf_exempt
+@login_required
+def registrar_fase4(request):
+    if request.method == "POST":
+        missao = Missoes.objects.get(pk_missao=5)
+        id_heroi = request.POST.get("heroi")
+        heroi = Herois.objects.get(pk_heroi=id_heroi)
+        ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
+        LogSpaceHeroes.objects.create(user=request.user, action='Iniciar fase 3')
+        return JsonResponse({"message": "Iniciar fase 4", "success": True})
+
+
+@csrf_exempt
+@login_required
+def registrar_pontuacao(request):
+    if request.method == "POST":
+        pontos = request.POST.get("pontos", 0)
+        id_missao = request.POST.get("missao")
+        id_heroi = request.POST.get("heroi")
+        heroi = Herois.objects.get(pk_heroi=id_heroi)
+        missao = Missoes.objects.get(pk_missao=id_missao)
+        progresso = ProgressoHeroi.objects.get(heroi=heroi, missao=missao)
+        if pontos > progresso.pontuacao:
+            progresso.pontuacao = pontos
+            progresso.save()
+
+        return JsonResponse({"message": "Pontos registrados", "success": True})
+
+
+@csrf_exempt
+@login_required
+def ranking(request):
+    ranking_dict = {}
+    progr = ProgressoHeroi.objects.annotate(pontuacao_jogador=Sum("pontuacao")).order_by('pontuacao_jogador').values(
+        "heroi__nome", "pontuacao_jogador")
+
+    for p in progr:
+        ranking_dict[p.heroi.nome] = p.pontuacao_jogador
+
+    return JsonResponse(ranking_dict)
 
 
 @login_required
