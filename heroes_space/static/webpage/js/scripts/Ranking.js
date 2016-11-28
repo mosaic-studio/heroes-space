@@ -29,9 +29,9 @@ BasicGame.Ranking.prototype = {
     },
 
     loadInterface: function () {
-        this.stateText = this.game.add.text(this.game.world.centerX, 50, 'Ranking',
+        this.title = this.game.add.text(this.game.world.centerX, 50, 'Ranking',
             { font: '84px Arial', fill: '#fff' });
-        this.stateText.anchor.setTo(0.5, 0.5);
+        this.title.anchor.setTo(0.5, 0.5);
         this.carregarRanking();
     },
 

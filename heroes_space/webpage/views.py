@@ -2,7 +2,9 @@ import csv
 from django.contrib.auth import login, authenticate, get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from django.db.models import Sum
+from django.db import IntegrityError
+from django.db.models import Sum, Count
+from django.forms import models
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
@@ -10,7 +12,8 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
 from webpage.forms import CreateUserForm
-from webpage.models import LogSpaceHeroes, Herois, Classes, Campanhas, ProgressoHeroi, Missoes
+from webpage.models import LogSpaceHeroes, Herois, Classes, Campanhas, ProgressoHeroi, Missoes, SalasMultiplayer, \
+    JogadoresMultiplayer
 
 User = get_user_model()
 
@@ -172,6 +175,60 @@ def ranking(request):
         ranking_dict["data"].append({"nome": p.heroi.nome, "pontuacao": p.pontuacao_jogador})
 
     return JsonResponse(ranking_dict)
+
+
+@login_required
+def listar_salas_multiplayer(request):
+    salas_dict = {"status": True, "data": []}
+    salas = SalasMultiplayer.objects.select_related().annotate(qtd=Count("mult_sala__pk_jog_multi"))
+    for i in salas:
+        salas_dict["data"].append({"nome": i.nome, "id": i.pk, "qtd_max": i.max_jogadores, "qtd": i.qtd})
+
+    return JsonResponse(salas_dict)
+
+
+@csrf_exempt
+@login_required
+def entrar_sala_multiplayer(request):
+    if request.method == "POST":
+        sala_dict = {"success": True, "sala": {}}
+
+        id_sala = request.POST.get("id_sala")
+        sala = SalasMultiplayer.objects.select_related().get(pk_sala=id_sala)
+        sala_dict["sala"] = {"nome": sala.nome, "id": sala.pk, "qtd_max": sala.max_jogadores,
+                             "mapa": sala.mapa, "jogadores": [], "jogador": request.user.pk}
+        jogadores = JogadoresMultiplayer.objects.select_related().filter(sala=sala)
+        contador = 0
+        for i in jogadores:
+            sala_dict["sala"]["jogadores"].append({"nome": i.jogador.username})
+            contador += 1
+        sala_dict["qtd"] = contador
+
+        if contador >= sala.max_jogadores:
+            sala_dict["success"] = False
+        else:
+            try:
+                JogadoresMultiplayer.objects.create(jogador=request.user, sala=sala)
+                sala_dict["sala"]["jogadores"].append({"nome": request.user.username})
+            except IntegrityError:
+                pass
+
+        return JsonResponse(sala_dict)
+
+
+@csrf_exempt
+@login_required
+def sair_sala_multiplayer(request):
+    if request.method == "POST":
+        status = {"success": True}
+        id_sala = request.POST.get("id_sala")
+        try:
+            jogador = JogadoresMultiplayer.objects.get(sala_id=id_sala, jogador=request.user)
+            jogador.delete()
+        except JogadoresMultiplayer.DoesNotExist:
+            status["success"] = False
+
+        return JsonResponse(status)
 
 
 @login_required

@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from webpage.models import Classes, Campanhas, Missoes, Itens, Equipamentos, Consumiveis
+from webpage.models import Classes, Campanhas, Missoes, Itens, Equipamentos, Consumiveis, SalasMultiplayer
 
 
 class Command(BaseCommand):
@@ -19,3 +19,7 @@ class Command(BaseCommand):
         Missoes.objects.create(campanha=camp_2, nome="Primeiro Contato", pk_missao=3)
         Missoes.objects.create(campanha=camp_2, nome="Plano de Fuga", pk_missao=4)
         Missoes.objects.create(campanha=camp_2, nome="Ilusão", pk_missao=5)
+
+        SalasMultiplayer.objects.create(nome="Only PRO", max_jogadores=8, mapa="Dust2_Universe")
+        SalasMultiplayer.objects.create(nome="4Noobs", max_jogadores=4, mapa="Aztec_Universe")
+        SalasMultiplayer.objects.create(nome="x1", max_jogadores=2, mapa="Pool_day_Galaxy")

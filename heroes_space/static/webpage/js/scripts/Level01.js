@@ -158,8 +158,8 @@ BasicGame.Level01.prototype = {
 
     checkWin: function () {
         if(this.meteors.countLiving() === 0){
-            this.stateText.text=" You Win \n Press C";
-            this.stateText.visible = true;
+            this.title.text=" You Win \n Press C";
+            this.title.visible = true;
             //the "click to restart" handler
             var key2 = this.game.input.keyboard.addKey(Phaser.Keyboard.C);
             key2.onDown.addOnce(this.nextLevel, this);
@@ -237,8 +237,8 @@ BasicGame.Level01.prototype = {
             explosion.play('kaboom', 30, false, true);
             if(this.lives <= 0){
                 this.meteors.callAll('kill');
-                this.stateText.text=" GAME OVER \n Pressione R";
-                this.stateText.visible = true;
+                this.title.text=" GAME OVER \n Pressione R";
+                this.title.visible = true;
 
                 //the "click to restart" handler
                 var key2 = this.game.input.keyboard.addKey(Phaser.Keyboard.R);
@@ -292,11 +292,11 @@ BasicGame.Level01.prototype = {
         this.txtPoints.fixedToCamera = true;
 
         //  Text
-        this.stateText = this.game.add.text(this.game.width/2, this.game.height/2,' ',
+        this.title = this.game.add.text(this.game.width/2, this.game.height/2,' ',
             { font: '84px Arial', fill: '#fff' });
-        this.stateText.anchor.setTo(0.5, 0.5);
-        this.stateText.fixedToCamera = true;
-        this.stateText.visible = false;
+        this.title.anchor.setTo(0.5, 0.5);
+        this.title.fixedToCamera = true;
+        this.title.visible = false;
 
     },
 
@@ -315,6 +315,6 @@ BasicGame.Level01.prototype = {
         this.createBullets();
         this.actualHealthShip = this.maxHealthShip;
         this.myHealthBar.setPercent(this.actualHealthShip);
-        this.stateText.visible = false;
+        this.title.visible = false;
     }
 };

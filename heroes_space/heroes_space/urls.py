@@ -31,4 +31,7 @@ urlpatterns = [
     url(r'^api/registrar_pontuacao/$', views.registrar_pontuacao),
     url(r'^api/ranking/$', views.ranking),
     url(r'^api/criar_heroi/$', views.criar_heroi_request),
+    url(r'^api/listar_salas/$', views.listar_salas_multiplayer),
+    url(r'^api/entrar_sala/$', views.entrar_sala_multiplayer),
+    url(r'^api/sair_sala/$', views.sair_sala_multiplayer),
 ]

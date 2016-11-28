@@ -142,3 +142,25 @@ class LogSpaceHeroes(models.Model):
 
     def __str__(self):
         return "{} - {} - {}".format(self.user.username, self.date, self.action)
+
+
+class SalasMultiplayer(models.Model):
+    pk_sala = models.AutoField(primary_key=True)
+    nome = models.CharField(max_length=50)
+    max_jogadores = models.PositiveIntegerField()
+    mapa = models.CharField(max_length=50)
+
+    def __str__(self):
+        return "{} - {} - {}".format(self.nome, self.mapa, self.max_jogadores)
+
+
+class JogadoresMultiplayer(models.Model):
+    pk_jog_multi = models.AutoField(primary_key=True)
+    jogador = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="mult_jogador")
+    sala = models.ForeignKey("SalasMultiplayer", related_name="mult_sala")
+
+    def __str__(self):
+        return "{} - {}".format(self.jogador.username, self.sala.nome)
+
+    class Meta:
+        unique_together = (('jogador', 'sala'), )

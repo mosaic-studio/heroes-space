@@ -31,7 +31,7 @@ BasicGame.Menu.prototype = {
 
         });
         this.createButton(this.game, "Multiplayer", this.game.world.centerX, this.game.world.centerY + 100, 300, 50, function () {
-            // this.state.start('Multiplayer');
+            this.state.start('EscolherSalaMultiplayer');
             console.log('Multiplayer');
         });
 
