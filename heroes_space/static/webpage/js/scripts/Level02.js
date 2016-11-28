@@ -23,6 +23,10 @@ BasicGame.Level02.prototype = {
         this.actualPoints = 0;
         this.gun = new Phaser.Point();
         this.level_id = 3;
+        this.base_velocity = 100;
+        this.base_damage = 25;
+        this.base_lifespan_shoot = 300;
+        this.end_game = false;
     },
 
     preload: function () {
@@ -49,7 +53,9 @@ BasicGame.Level02.prototype = {
 
     createShip: function () {
         //  Our player ship
-        this.ship = this.game.add.sprite(99, 75, 'ship');
+        this.ship_data = this.game.state.states["EscolherHeroi"].ship_data;
+        this.maxHealthShip = this.actualHealthShip = this.ship_data.vida;
+        this.ship = this.game.add.sprite(99, 75, this.ship_data.classe);
         this.ship.smoothed = true;
         this.game.physics.p2.enable(this.ship, false);
         this.ship.body.setRectangle(80, 50);
@@ -167,10 +173,10 @@ BasicGame.Level02.prototype = {
         this.enemies.forEachAlive(this.moveEnemies,this);
         if (this.ship.alive) {
             if (this.cursors.up.isDown) {
-                this.ship.body.thrust(400);
+                this.ship.body.thrust(this.base_velocity * this.ship_data.agilidade);
             }
             else if (this.cursors.down.isDown) {
-                this.ship.body.reverse(400);
+                this.ship.body.reverse(this.base_velocity * this.ship_data.agilidade);
             }
 
             if (this.cursors.left.isDown) {
@@ -207,13 +213,13 @@ BasicGame.Level02.prototype = {
     },
 
     checkWin: function () {
-        if(this.enemies.countLiving() === 0){
+        if(this.enemies.countLiving() === 0 && !this.end_game){
+            this.end_game = true;
             this.stateText.text=" You Win";
             this.stateText.visible = true;
+            this.registrarPontuacao();
         }
     },
-
-
 
     moveEnemies: function (enemy) {
         this.accelerateToObject(enemy,this.ship,this.game.rnd.integerInRange(30, 100));
@@ -242,15 +248,16 @@ BasicGame.Level02.prototype = {
         // var explosion = this.enemy_explosions.getFirstExists(false);
         // explosion.reset(ship.x, ship.y);
         // explosion.play('kaboom', 30, false, true);
-        // this.actualPoints += 1;
+        this.actualPoints -= 1;
     },
 
 
     checkHealth: function (ship, damage) {
-        this.actualHealthShip -= damage;
-        this.myHealthBar.setPercent(this.actualHealthShip);
+        this.actualHealthShip = this.actualHealthShip - damage / this.ship_data.resistencia;
+        var porcentagem = (this.actualHealthShip/this.maxHealthShip)*100;
+        this.myHealthBar.setPercent(porcentagem);
         this.ship.body.setZeroVelocity();
-        if (this.actualHealthShip === 0) {
+        if (this.actualHealthShip <= 0) {
             this.lives -= 1;
             this.ship.kill();
             var explosion = this.explosion.getFirstExists(false);
@@ -278,9 +285,18 @@ BasicGame.Level02.prototype = {
         var mExplosion = this.enemy_explosions.getFirstExists(false);
         mExplosion.reset(enemy.x, enemy.y);
         mExplosion.play('kaboom', 30, false, true);
-        this.actualPoints += 1;
+        this.actualPoints -= 1;
         this.checkHealth(ship, 25);
         // body2.removeFromWorld();
+    },
+
+    registrarPontuacao: function () {
+        var request = new XMLHttpRequest();
+        var heroi = this.game.state.states["EscolherHeroi"].ship_data.heroi;
+        var params = "heroi=" + heroi + "&missao=" + this.level_id + "&pontos=" + this.actualPoints;
+        request.open('POST', '/api/registrar_pontuacao/', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send(params);
     },
 
     enemyFireBullet: function () {
@@ -318,7 +334,7 @@ BasicGame.Level02.prototype = {
 
                 nextBullet.body.velocity.x = this.gun.x * this.bulletSpeed + this.ship.body.velocity.x;
                 nextBullet.body.velocity.y = this.gun.y * this.bulletSpeed + this.ship.body.velocity.y;
-                nextBullet.lifespan = 1000;
+                nextBullet.lifespan = this.base_lifespan_shoot * this.ship_data.poder_ataque;;
                 this.bulletTime = this.time.now + 50;
             }
         }
@@ -381,6 +397,7 @@ BasicGame.Level02.prototype = {
         this.actualHealthShip = this.maxHealthShip;
         this.myHealthBar.setPercent(this.actualHealthShip);
         this.stateText.visible = false;
+        this.end_game = false;
     }
 
 };

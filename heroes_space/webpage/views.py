@@ -149,7 +149,7 @@ def registrar_fase4(request):
 @login_required
 def registrar_pontuacao(request):
     if request.method == "POST":
-        pontos = request.POST.get("pontos", 0)
+        pontos = int(request.POST.get("pontos", 0))
         id_missao = request.POST.get("missao")
         id_heroi = request.POST.get("heroi")
         heroi = Herois.objects.get(pk_heroi=id_heroi)

@@ -113,7 +113,7 @@ BasicGame.Prologue.prototype = {
     iniciarFase01: function () {
         // TODO: Arrumar o envio do parâmetro do POST
         var request = new XMLHttpRequest();
-        var params = "heroi="+BasicGame.EscolherHeroi.prototype.heroi.heroi;
+        var params = "heroi="+this.game.state.states["EscolherHeroi"].ship_data.heroi;
         request.open('POST', '/api/registrar_fase01/', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         request.send(params);

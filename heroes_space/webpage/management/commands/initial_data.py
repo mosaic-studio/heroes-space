@@ -5,9 +5,9 @@ from webpage.models import Classes, Campanhas, Missoes, Itens, Equipamentos, Con
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        tank = Classes.objects.create(nome='Tank', resistencia=70, agilidade=30, poder_ataque=10, vida=500)
-        hybrid = Classes.objects.create(nome='Hybrid', resistencia=0, agilidade=100, poder_ataque=50, vida=250)
-        faster = Classes.objects.create(nome='Faster', resistencia=10, agilidade=250, poder_ataque=35, vida=150)
+        tank = Classes.objects.create(nome='Tank', resistencia=4, agilidade=2, poder_ataque=2, vida=120)
+        hybrid = Classes.objects.create(nome='Hybrid', resistencia=2, agilidade=3, poder_ataque=3, vida=100)
+        faster = Classes.objects.create(nome='Faster', resistencia=1, agilidade=5, poder_ataque=2, vida=75)
 
         camp_1 = Campanhas.objects.create(nome="Prólogo")
         camp_2 = Campanhas.objects.create(nome="Descoberta")
