@@ -155,22 +155,21 @@ def registrar_pontuacao(request):
         heroi = Herois.objects.get(pk_heroi=id_heroi)
         missao = Missoes.objects.get(pk_missao=id_missao)
         progresso = ProgressoHeroi.objects.get(heroi=heroi, missao=missao)
-        if pontos > progresso.pontuacao:
+        if pontos > progresso.pontuacao and pontos > 0:
             progresso.pontuacao = pontos
             progresso.save()
 
         return JsonResponse({"message": "Pontos registrados", "success": True})
 
 
-@csrf_exempt
 @login_required
 def ranking(request):
-    ranking_dict = {}
-    progr = ProgressoHeroi.objects.annotate(pontuacao_jogador=Sum("pontuacao")).order_by('pontuacao_jogador').values(
-        "heroi__nome", "pontuacao_jogador")
+    ranking_dict = {"status": True, "data": []}
+    progr = ProgressoHeroi.objects.select_related().annotate(pontuacao_jogador=Sum("pontuacao")).order_by(
+        '-pontuacao_jogador')[:20]
 
     for p in progr:
-        ranking_dict[p.heroi.nome] = p.pontuacao_jogador
+        ranking_dict["data"].append({"nome": p.heroi.nome, "pontuacao": p.pontuacao_jogador})
 
     return JsonResponse(ranking_dict)
 

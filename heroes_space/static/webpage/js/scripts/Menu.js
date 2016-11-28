@@ -35,6 +35,11 @@ BasicGame.Menu.prototype = {
             console.log('Multiplayer');
         });
 
+
+        this.createButton(this.game, "Ranking", this.game.world.centerX, this.game.world.centerY + 170, 300, 50, function () {
+            this.state.start('Ranking');
+        });
+
         // var titlescreen = this.add.sprite(this.game.world.centerX, this.game.world.centerY - 192, 'titulo');
         // titlescreen.anchor.setTo(0.5, 0.5);
 
