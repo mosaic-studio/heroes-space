@@ -27,12 +27,7 @@ BasicGame.Menu.prototype = {
         this.game.renderer.roundPixels = true;
 
         this.createButton(this.game, "Modo Campanha", this.game.world.centerX, this.game.world.centerY + 32, 300, 50, function () {
-
-            var request = new XMLHttpRequest();
-            request.open('POST', '/api/iniciar_nova_campanha/', true);
-            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-            request.send();
-            this.state.start('Prologue');
+            this.state.start('EscolherHeroi');
 
         });
         this.createButton(this.game, "Multiplayer", this.game.world.centerX, this.game.world.centerY + 100, 300, 50, function () {

@@ -13,6 +13,9 @@
     game.state.add('Boot', BasicGame.Boot);
     game.state.add('Menu', BasicGame.Menu);
     game.state.add('Preloader', BasicGame.Preloader);
+    game.state.add('EscolherHeroi', BasicGame.EscolherHeroi);
+    game.state.add('SalaDeEspera', BasicGame.SalaDeEspera);
+    game.state.add('EscolherSalaMultiplayer', BasicGame.EscolherSalaMultiplayer);
     game.state.add('Prologue', BasicGame.Prologue);
     game.state.add('Ranking', BasicGame.Ranking);
     game.state.add('Level01', BasicGame.Level01);

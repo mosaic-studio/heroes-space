@@ -90,11 +90,7 @@ BasicGame.Prologue.prototype = {
         }
         if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
         {
-            var request = new XMLHttpRequest();
-            request.open('POST', '/api/registrar_fase01/', true);
-            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-            request.send();
-            this.state.start('Level01')
+            this.iniciarFase01();
         }
     },
 
@@ -114,6 +110,16 @@ BasicGame.Prologue.prototype = {
 
     },
 
+    iniciarFase01: function () {
+        // TODO: Arrumar o envio do parâmetro do POST
+        var request = new XMLHttpRequest();
+        var params = "heroi="+BasicGame.EscolherHeroi.prototype.heroi.heroi;
+        request.open('POST', '/api/registrar_fase01/', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send(params);
+        this.state.start('Level01');
+    },
+
     nextLine: function() {
 
         index++;
@@ -122,11 +128,7 @@ BasicGame.Prologue.prototype = {
             line = '';
             this.game.time.events.repeat(80, content[index].length + 1, this.updateLine, this);
         }else{
-            var request = new XMLHttpRequest();
-            request.open('POST', '/api/registrar_fase01/', true);
-            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-            request.send();
-            this.state.start('Level01');
+            this.iniciarFase01();
         }
     }
 

@@ -21,7 +21,6 @@ BasicGame.Ranking.prototype = {
 
     create: function () {
 
-
     },
 
     update: function(){
