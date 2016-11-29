@@ -43,6 +43,9 @@ BasicGame.EscolherSalaMultiplayer.prototype = {
         this.title = this.game.add.text(this.game.world.centerX, 30, 'Salas Multiplayer',
             { font: '60px Arial', fill: '#fff' });
         this.title.anchor.setTo(0.5, 0.5);
+        this.createButton(this.game, "Voltar", this.game.world.centerX, this.game.world.height - 50, 300, 50, function () {
+            this.state.start('Menu');
+        });
         this.resgatarSalas();
     },
 
