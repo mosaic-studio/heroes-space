@@ -196,11 +196,11 @@ def registrar_pontuacao(request):
 @login_required
 def ranking(request):
     ranking_dict = {"status": True, "data": []}
-    progr = ProgressoHeroi.objects.select_related().annotate(pontuacao_jogador=Sum("pontuacao")).order_by(
-        '-pontuacao_jogador')[:20]
+    progr = ProgressoHeroi.objects.select_related().values("heroi", "heroi__nome").annotate(pontuacao_jogador=Sum("pontuacao")
+                                                                             ).order_by('-pontuacao_jogador')[:20]
 
     for p in progr:
-        ranking_dict["data"].append({"nome": p.heroi.nome, "pontuacao": p.pontuacao_jogador})
+        ranking_dict["data"].append({"nome": p["heroi__nome"], "pontuacao": p["pontuacao_jogador"]})
 
     return JsonResponse(ranking_dict)
 
