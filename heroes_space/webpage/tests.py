@@ -47,5 +47,4 @@ class TestesTest(TestCase):
         criar_heroi = c.post("/api/criar_heroi/", {"classe": "Faster"})
         #  data = json.loads(criar_heroi.content)
         self.assertEqual(criar_heroi.status_code, 200)
-        response = c.post('/api/iniciar_nova_campanha/', {'heroi': ''})
 

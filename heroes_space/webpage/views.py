@@ -164,7 +164,10 @@ def registrar_fase4(request):
 @login_required
 def registrar_pontuacao(request):
     if request.method == "POST":
-        pontos = int(request.POST.get("pontos", 0))
+        try:
+            pontos = int(request.POST.get("pontos", 0))
+        except ValueError:
+            return JsonResponse({"message": "pontos precisam ser números", "success": False})
         id_missao = request.POST.get("missao")
         if id_missao is None:
             return JsonResponse({"message": "missão obrigatório", "success": False})
