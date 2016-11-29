@@ -79,9 +79,11 @@ def criar_heroi_function(request, classe="Hybrid"):
 @login_required
 def iniciar_nova_campanha(request):
     if request.method == "POST":
+        id_heroi = request.POST.get("heroi")
+        if id_heroi is None:
+            return JsonResponse({"message": "heroi obrigatório!", "success": False})
         campanha = Campanhas.objects.get(nome="Prólogo")
         missao = Missoes.objects.get(campanha=campanha, pk_missao=1)
-        id_heroi = request.POST.get("heroi")
         heroi = Herois.objects.get(pk_heroi=id_heroi)
         ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
         LogSpaceHeroes.objects.create(user=request.user, action='Iniciar nova campanha')
@@ -93,6 +95,8 @@ def iniciar_nova_campanha(request):
 def escolher_heroi(request):
     if request.method == "POST":
         id_heroi = request.POST.get("heroi")
+        if id_heroi is None:
+            return JsonResponse({"message": "heroi obrigatório!", "success": False})
         heroi = Herois.objects.select_for_update().get(pk_heroi=id_heroi)
         progresso = ProgressoHeroi.objects.select_related().filter(heroi=heroi).order_by('missao__pk_missao')[0]
         return JsonResponse({"missao": progresso.missao.pk_missao, "nivel": heroi.nivel, "classe": heroi.classe.nome,
@@ -106,6 +110,8 @@ def registrar_fase1(request):
     if request.method == "POST":
         missao = Missoes.objects.get(pk_missao=2)
         id_heroi = request.POST.get("heroi")
+        if id_heroi is None:
+            return JsonResponse({"message": "heroi obrigatório!", "success": False})
         heroi = Herois.objects.get(pk_heroi=id_heroi)
         ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
         LogSpaceHeroes.objects.create(user=request.user, action='Iniciar fase 1')
@@ -118,6 +124,8 @@ def registrar_fase2(request):
     if request.method == "POST":
         missao = Missoes.objects.get(pk_missao=3)
         id_heroi = request.POST.get("heroi")
+        if id_heroi is None:
+            return JsonResponse({"message": "heroi obrigatório!", "success": False})
         heroi = Herois.objects.get(pk_heroi=id_heroi)
         ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
         LogSpaceHeroes.objects.create(user=request.user, action='Iniciar fase 2')
@@ -130,6 +138,8 @@ def registrar_fase3(request):
     if request.method == "POST":
         missao = Missoes.objects.get(pk_missao=4)
         id_heroi = request.POST.get("heroi")
+        if id_heroi is None:
+            return JsonResponse({"message": "heroi obrigatório!", "success": False})
         heroi = Herois.objects.get(pk_heroi=id_heroi)
         ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
         LogSpaceHeroes.objects.create(user=request.user, action='Iniciar fase 3')
@@ -142,6 +152,8 @@ def registrar_fase4(request):
     if request.method == "POST":
         missao = Missoes.objects.get(pk_missao=5)
         id_heroi = request.POST.get("heroi")
+        if id_heroi is None:
+            return JsonResponse({"message": "heroi obrigatório!", "success": False})
         heroi = Herois.objects.get(pk_heroi=id_heroi)
         ProgressoHeroi.objects.create(heroi=heroi, missao=missao)
         LogSpaceHeroes.objects.create(user=request.user, action='Iniciar fase 3')
@@ -154,10 +166,23 @@ def registrar_pontuacao(request):
     if request.method == "POST":
         pontos = int(request.POST.get("pontos", 0))
         id_missao = request.POST.get("missao")
+        if id_missao is None:
+            return JsonResponse({"message": "missão obrigatório", "success": False})
         id_heroi = request.POST.get("heroi")
-        heroi = Herois.objects.get(pk_heroi=id_heroi)
-        missao = Missoes.objects.get(pk_missao=id_missao)
-        progresso = ProgressoHeroi.objects.get(heroi=heroi, missao=missao)
+        if id_heroi is None:
+            return JsonResponse({"message": "heroi obrigatório!", "success": False})
+        try:
+            heroi = Herois.objects.get(pk_heroi=id_heroi)
+        except Herois.DoesNotExist:
+            return JsonResponse({"message": "heroi não encontrado!", "success": False})
+        try:
+            missao = Missoes.objects.get(pk_missao=id_missao)
+        except Missoes.DoesNotExist:
+            return JsonResponse({"message": "missão não logalizada!", "success": False})
+        try:
+            progresso = ProgressoHeroi.objects.get(heroi=heroi, missao=missao)
+        except ProgressoHeroi.DoesNotExist:
+            return JsonResponse({"message": "progresso não localizado!", "success": False})
         if pontos > progresso.pontuacao and pontos > 0:
             progresso.pontuacao = pontos
             progresso.save()
@@ -192,9 +217,13 @@ def listar_salas_multiplayer(request):
 def entrar_sala_multiplayer(request):
     if request.method == "POST":
         sala_dict = {"success": True, "sala": {}}
-
         id_sala = request.POST.get("id_sala")
-        sala = SalasMultiplayer.objects.select_related().get(pk_sala=id_sala)
+        if id_sala is None:
+            return JsonResponse({"message": "sala obrigatório!", "success": False})
+        try:
+            sala = SalasMultiplayer.objects.select_related().get(pk_sala=id_sala)
+        except SalasMultiplayer.DoesNotExist:
+            return JsonResponse({"message": "sala não encontrada!", "success": False})
         sala_dict["sala"] = {"nome": sala.nome, "id": sala.pk, "qtd_max": sala.max_jogadores,
                              "mapa": sala.mapa, "jogadores": [], "jogador": request.user.pk}
         jogadores = JogadoresMultiplayer.objects.select_related().filter(sala=sala)
@@ -222,6 +251,8 @@ def sair_sala_multiplayer(request):
     if request.method == "POST":
         status = {"success": True}
         id_sala = request.POST.get("id_sala")
+        if id_sala is None:
+            return JsonResponse({"message": "sala obrigatória!", "success": False})
         try:
             jogador = JogadoresMultiplayer.objects.get(sala_id=id_sala, jogador=request.user)
             jogador.delete()
