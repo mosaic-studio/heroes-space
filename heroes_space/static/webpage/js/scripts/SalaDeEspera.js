@@ -29,12 +29,17 @@ BasicGame.SalaDeEspera.prototype = {
         request.send(params);
         request.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                var sair_sala = JSON.parse(this.responseText);
-                if(sair_sala["success"]){
-                    me.state.start("EscolherSalaMultiplayer");
-                }else{
-                    alert("Erro ao sair da sala");
-                    me.state.start("EscolherSalaMultiplayer");
+                try {
+                    var sair_sala = JSON.parse(this.responseText);
+                    if(sair_sala["success"]){
+                        me.state.start("EscolherSalaMultiplayer");
+                    }else{
+                        alert("Erro ao sair da sala");
+                        me.state.start("EscolherSalaMultiplayer");
+                    }
+                }catch (SyntaxError){
+                    alert("Você foi banido!");
+                    window.location.href = "/";
                 }
             }
         };
@@ -49,19 +54,24 @@ BasicGame.SalaDeEspera.prototype = {
         request.send(params);
         request.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                me.sala = JSON.parse(this.responseText);
-                if(me.sala["success"]){
-                    var space = 100;
-                    for (var i=0; i < me.sala.sala.jogadores.length; i++){
-                        var txt = me.sala.sala.jogadores[i]["nome"];
-                        var txtUsuario = me.game.add.text(me.game.world.centerX, space, txt,
-                            { font: '25px Arial', fill: '#fff' });
-                        txtUsuario.anchor.setTo(0.5, 0.5);
-                        space += 65;
+                try{
+                    me.sala = JSON.parse(this.responseText);
+                    if(me.sala["success"]){
+                        var space = 100;
+                        for (var i=0; i < me.sala.sala.jogadores.length; i++){
+                            var txt = me.sala.sala.jogadores[i]["nome"];
+                            var txtUsuario = me.game.add.text(me.game.world.centerX, space, txt,
+                                { font: '25px Arial', fill: '#fff' });
+                            txtUsuario.anchor.setTo(0.5, 0.5);
+                            space += 65;
+                        }
+                    }else{
+                        alert("Erro ao acessar a sala");
+                        me.state.start("EscolherSalaMultiplayer");
                     }
-                }else{
-                    alert("Erro ao acessar a sala");
-                    me.state.start("EscolherSalaMultiplayer");
+                }catch (SyntaxError){
+                    alert("Você foi banido!");
+                    window.location.href = "/";
                 }
             }
         };

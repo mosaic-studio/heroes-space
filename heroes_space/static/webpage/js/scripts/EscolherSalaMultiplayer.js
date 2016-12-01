@@ -61,18 +61,23 @@ BasicGame.EscolherSalaMultiplayer.prototype = {
 
         request.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                me.salas = JSON.parse(this.responseText);
-                var space = 100;
-                for (var i=0; i < me.salas.data.length; i++){
-                    var txt = me.salas["data"][i]["nome"]+" - "+me.salas["data"][i]["qtd"]+"/"+me.salas["data"][i]["qtd_max"];
-                    me.createButton(me.game, txt,
-                        me.game.world.centerX, space, 300, 50,
-                        (function(idx){
-                            return function(){
-                                me.abrirSala(me.salas["data"][idx]);}
-                        })(i)
-                    );
-                    space += 65;
+                try{
+                    me.salas = JSON.parse(this.responseText);
+                    var space = 100;
+                    for (var i=0; i < me.salas.data.length; i++){
+                        var txt = me.salas["data"][i]["nome"]+" - "+me.salas["data"][i]["qtd"]+"/"+me.salas["data"][i]["qtd_max"];
+                        me.createButton(me.game, txt,
+                            me.game.world.centerX, space, 300, 50,
+                            (function(idx){
+                                return function(){
+                                    me.abrirSala(me.salas["data"][idx]);}
+                            })(i)
+                        );
+                        space += 65;
+                    }
+                }catch (SyntaxError){
+                    alert("Você foi banido!");
+                    window.location.href = "/";
                 }
             }
         };

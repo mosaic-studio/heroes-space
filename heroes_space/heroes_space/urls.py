@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 
 from webpage import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
-    url(r'^login/$', views.logar),
+    url(r'^login/$', auth_views.login),
+    url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^criar_conta/$', views.criar_conta),
     url(r'^api/iniciar_nova_campanha/$', views.iniciar_nova_campanha),
     url(r'^api/registrar_fase01/$', views.registrar_fase1),

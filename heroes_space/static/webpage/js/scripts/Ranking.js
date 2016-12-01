@@ -40,13 +40,18 @@ BasicGame.Ranking.prototype = {
         var request = new XMLHttpRequest();
         request.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                me.ranking = JSON.parse(this.responseText);
-                var space = 100;
-                for (var i=0; i < me.ranking.data.length; i++){
-                    me.game.add.text(200, space, me.ranking["data"][i]["nome"], { font: '20px Arial', fill: '#fff' });
-                    me.game.add.text(me.game.width-200, space, me.ranking["data"][i]["pontuacao"], { font: '20px Arial',
-                        fill: '#fff' });
-                    space += 20;
+                try {
+                    me.ranking = JSON.parse(this.responseText);
+                    var space = 100;
+                    for (var i=0; i < me.ranking.data.length; i++){
+                        me.game.add.text(200, space, me.ranking["data"][i]["nome"], { font: '20px Arial', fill: '#fff' });
+                        me.game.add.text(me.game.width-200, space, me.ranking["data"][i]["pontuacao"], { font: '20px Arial',
+                            fill: '#fff' });
+                        space += 20;
+                    }
+                }catch (SyntaxError){
+                    alert("Você foi banido!");
+                    window.location.href = "/";
                 }
             }
         };

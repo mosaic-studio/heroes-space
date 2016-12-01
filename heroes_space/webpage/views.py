@@ -1,16 +1,15 @@
 import csv
-from django.contrib.auth import login, authenticate, get_user_model
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate, get_user_model, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.db import IntegrityError
 from django.db.models import Sum, Count
-from django.forms import models
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
+from webpage.decorator import active_and_login_required
 from webpage.forms import CreateUserForm
 from webpage.models import LogSpaceHeroes, Herois, Classes, Campanhas, ProgressoHeroi, Missoes, SalasMultiplayer, \
     JogadoresMultiplayer
@@ -20,7 +19,11 @@ User = get_user_model()
 
 def index(request):
     if request.user.is_authenticated():
-        return render(request, 'webpage/index.html')
+        if request.user.is_active:
+            return render(request, 'webpage/index.html')
+        else:
+            logout(request)
+            return HttpResponse("Você foi banido!")
     else:
         return render(request, 'index.html')
 
@@ -39,7 +42,6 @@ def criar_conta(request):
             return HttpResponseRedirect("/")
         else:
             dados["erros"] = form.errors
-
         dados["form"] = CreateUserForm()
     return render(request, "webpage/cadastro.html", dados)
 
@@ -57,7 +59,7 @@ def logar(request):
 
 
 @csrf_exempt
-@login_required
+@active_and_login_required
 def criar_heroi_request(request):
     if request.method == "POST":
         classe = request.POST.get("classe", "Hybrid")
@@ -76,7 +78,7 @@ def criar_heroi_function(request, classe="Hybrid"):
 
 
 @csrf_exempt
-@login_required
+@active_and_login_required
 def iniciar_nova_campanha(request):
     if request.method == "POST":
         id_heroi = request.POST.get("heroi")
@@ -91,7 +93,7 @@ def iniciar_nova_campanha(request):
 
 
 @csrf_exempt
-@login_required
+@active_and_login_required
 def escolher_heroi(request):
     if request.method == "POST":
         id_heroi = request.POST.get("heroi")
@@ -105,7 +107,7 @@ def escolher_heroi(request):
 
 
 @csrf_exempt
-@login_required
+@active_and_login_required
 def registrar_fase1(request):
     if request.method == "POST":
         missao = Missoes.objects.get(pk_missao=2)
@@ -119,7 +121,7 @@ def registrar_fase1(request):
 
 
 @csrf_exempt
-@login_required
+@active_and_login_required
 def registrar_fase2(request):
     if request.method == "POST":
         missao = Missoes.objects.get(pk_missao=3)
@@ -133,7 +135,7 @@ def registrar_fase2(request):
 
 
 @csrf_exempt
-@login_required
+@active_and_login_required
 def registrar_fase3(request):
     if request.method == "POST":
         missao = Missoes.objects.get(pk_missao=4)
@@ -147,7 +149,7 @@ def registrar_fase3(request):
 
 
 @csrf_exempt
-@login_required
+@active_and_login_required
 def registrar_fase4(request):
     if request.method == "POST":
         missao = Missoes.objects.get(pk_missao=5)
@@ -161,7 +163,7 @@ def registrar_fase4(request):
 
 
 @csrf_exempt
-@login_required
+@active_and_login_required
 def registrar_pontuacao(request):
     if request.method == "POST":
         try:
@@ -193,11 +195,12 @@ def registrar_pontuacao(request):
         return JsonResponse({"message": "Pontos registrados", "success": True})
 
 
-@login_required
+@active_and_login_required
 def ranking(request):
     ranking_dict = {"status": True, "data": []}
-    progr = ProgressoHeroi.objects.select_related().values("heroi", "heroi__nome").annotate(pontuacao_jogador=Sum("pontuacao")
-                                                                             ).order_by('-pontuacao_jogador')[:20]
+    progr = ProgressoHeroi.objects.select_related().values("heroi", "heroi__nome").annotate(
+        pontuacao_jogador=Sum("pontuacao")
+        ).order_by('-pontuacao_jogador')[:20]
 
     for p in progr:
         ranking_dict["data"].append({"nome": p["heroi__nome"], "pontuacao": p["pontuacao_jogador"]})
@@ -205,7 +208,7 @@ def ranking(request):
     return JsonResponse(ranking_dict)
 
 
-@login_required
+@active_and_login_required
 def listar_salas_multiplayer(request):
     salas_dict = {"status": True, "data": []}
     salas = SalasMultiplayer.objects.select_related().annotate(qtd=Count("mult_sala__pk_jog_multi"))
@@ -216,7 +219,7 @@ def listar_salas_multiplayer(request):
 
 
 @csrf_exempt
-@login_required
+@active_and_login_required
 def entrar_sala_multiplayer(request):
     if request.method == "POST":
         sala_dict = {"success": True, "sala": {}}
@@ -249,7 +252,7 @@ def entrar_sala_multiplayer(request):
 
 
 @csrf_exempt
-@login_required
+@active_and_login_required
 def sair_sala_multiplayer(request):
     if request.method == "POST":
         status = {"success": True}
@@ -265,7 +268,7 @@ def sair_sala_multiplayer(request):
         return JsonResponse(status)
 
 
-@login_required
+@active_and_login_required
 def gerar_relatorio(request):
     if request.user.is_superuser:
         response = HttpResponse(content_type='text/csv')
@@ -279,6 +282,6 @@ def gerar_relatorio(request):
         return response
 
 
-@login_required
+@active_and_login_required
 def pag_gerar_relatorio(request):
     return render(request, "webpage/cadastro.html")

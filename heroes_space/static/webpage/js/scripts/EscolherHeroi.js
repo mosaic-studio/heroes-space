@@ -54,9 +54,14 @@ BasicGame.EscolherHeroi.prototype = {
 
         request.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                var myArr = JSON.parse(this.responseText);
-                me.ship_data = myArr;
-                me.startPrologue(myArr);
+                try{
+                    var myArr = JSON.parse(this.responseText);
+                    me.ship_data = myArr;
+                    me.startPrologue(myArr);
+                }catch (SyntaxError){
+                    alert("Você foi banido!");
+                    window.location.href = "/";
+                }
             }
         };
     },
