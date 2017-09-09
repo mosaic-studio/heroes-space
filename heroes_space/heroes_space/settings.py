@@ -134,12 +134,12 @@ LOGIN_REDIRECT_URL = '/'
 
 if 'RDS_DB_NAME' in os.environ:
     INSTALLED_APPS += ('storages',)
-    AWS_STORAGE_BUCKET_NAME = 'heroes-space'
-    AWS_ACCESS_KEY_ID = 'AKIAJIOURZA57CIVG6HQ'
-    AWS_SECRET_ACCESS_KEY = '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'
+    AWS_STORAGE_BUCKET_NAME = '#########################'
+    AWS_ACCESS_KEY_ID = '##############'
+    AWS_SECRET_ACCESS_KEY = '################'
     AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
 
-    ALLOWED_HOSTS = ['heroes-space-dev.sa-east-1.elasticbeanstalk.com', '127.0.0.1', 'localhost']
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
     STATICFILES_LOCATION = 'static'
